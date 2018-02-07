@@ -1,5 +1,4 @@
-
-
+import { PainelService } from './services/painel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -35,7 +34,7 @@ import { NewsComponent } from './news/news.component';
 
     FormsModule
   ],
-  providers: [],
+  providers: [PainelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

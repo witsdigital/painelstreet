@@ -1,3 +1,5 @@
+import { PainelService } from './../services/painel.service';
+PainelService
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+news:any;
+  constructor(public service: PainelService) { 
 
-  constructor() { }
+this.service.getNoticias_base().subscribe((data)=>{
+  this.news = data;
+  console.log(data);
+});
+
+  }
 
   ngOnInit() {
   }

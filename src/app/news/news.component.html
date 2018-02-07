@@ -62,15 +62,14 @@
       </div>
     </div>
     <div class="card-columns el-element-overlay">
-      <div class="card">
+      <div *ngFor="let item of news"  class="card">
         <div class="el-card-item">
           <div class="el-card-avatar el-overlay-1">
-            <img src="../assets/images/big/img5.jpg" alt="user" />
+            <img src="{{item.img}}" alt="user" />
           </div>
           <div class="el-card-content">
-            <h3 class="box-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-            <small>minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exce</small>
+            <h3 class="box-title">{{item.titulo}}</h3>
+            <small>{{item.descricao}}</small>
             <br/> </div>
         </div>
       </div>
