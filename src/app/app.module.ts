@@ -11,6 +11,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { ElencoComponent } from './elenco/elenco.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    ElencoComponent
   ],
   imports: [
     BrowserModule,

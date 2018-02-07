@@ -24,7 +24,9 @@
         "../assets/plugins/chartist-js/dist/chartist.min.css",
         "../assets/plugins/chartist-js/dist/chartist-init.css",
         "../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css",
-        "../assets/plugins/c3-master/c3.min.css",
+     
+        "../assets/plugins/css-chart/css-chart.css",
+        "../assets/plugins/vectormap/jquery-jvectormap-2.0.2.css",
         "../assets/css/style.css",
         "../assets/css/colors/green-dark.css"
       ],
@@ -43,8 +45,11 @@
         "../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js",
         "../assets/plugins/d3/d3.min.js",
         "../assets/plugins/c3-master/c3.min.js",
-        "../assets/js/dashboard1.js",
-        "../assets/plugins/styleswitcher/jQuery.style.switcher.js"
+        "../assets/js/dashboard3.js",
+        "../assets/plugins/styleswitcher/jQuery.style.switcher.js",
+        "../assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js",
+        "../assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"
+   
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
