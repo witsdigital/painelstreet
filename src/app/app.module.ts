@@ -12,6 +12,9 @@ import { ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ElencoComponent } from './elenco/elenco.component';
+import { LoginComponent } from './login/login.component';
+import { BasehomeComponent } from './basehome/basehome.component';
+import { NewsComponent } from './news/news.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { ElencoComponent } from './elenco/elenco.component';
     HeaderComponent,
     MenuComponent,
     HomeComponent,
-    ElencoComponent
+    ElencoComponent,
+    LoginComponent,
+    BasehomeComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

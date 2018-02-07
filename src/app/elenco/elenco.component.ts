@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElencoComponent implements OnInit {
 
-  constructor() { }
+  cards:any = [];
+  constructor() {
+
+    for(let i = 0; i<10; i++){
+      this.cards[i] = i;
+
+    }
+
+   }
 
   ngOnInit() {
   }
