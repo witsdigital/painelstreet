@@ -1,3 +1,4 @@
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PainelService } from '../services/painel.service';
@@ -13,8 +14,10 @@ export class LoginComponent implements OnInit {
   responseData : any = [];
 
   mensagemError;
+  mensagemErrorCadastro;
+  mensagemSucessCadastro;
 
-  constructor(private router: Router, public service: PainelService) {
+  constructor(private router: Router, public service: PainelService, private modal: NgbModal) {
     if (localStorage.getItem('userData')) {
       this.router.navigate(['home']);
 
@@ -56,6 +59,55 @@ export class LoginComponent implements OnInit {
    
   }
 
+}
+
+
+cadastrar() {
+
+
+  if(!this.cadastro.login || !this.cadastro.senha || !this.cadastro.senha || !this.cadastro.senha2){
+    this.mensagemErrorCadastro = '';
+    this.mensagemErrorCadastro = "Preencha todos os campos"
+  }
+  
+  else if(this.cadastro.senha != this.cadastro.senha2){
+    this.mensagemErrorCadastro = '';
+    this.mensagemErrorCadastro = "As senhas não correspondem";
+  }
+  else{
+    this.service.postCadastro(this.cadastro).then((result) => {
+      this.responseData = result;
+      if(this.responseData.mensage==1){
+
+        this.mensagemErrorCadastro = '';
+       this.mensagemErrorCadastro = "Nome de usuario já cadastrado";
+  
+      }
+      if(this.responseData.mensage==2){
+        this.mensagemSucessCadastro = '';
+        this.mensagemErrorCadastro = "Email já cadastrado";
+       }
+       
+       else {
+        this.mensagemErrorCadastro = "";
+        this.mensagemSucessCadastro = "Cadastro realizado com sucesso, divirta-se.";
+      }
+
+
+    }, (err) => {
+      // Error log
+    });
+    
+}
+
+}
+
+
+openModal(modal){
+  this.mensagemSucessCadastro = '';
+  this.mensagemErrorCadastro = '';
+  this.modal.open(modal);
+  
 }
 
 }

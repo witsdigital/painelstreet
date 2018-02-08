@@ -36,7 +36,7 @@
       {{login}}
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">
-            <button (click)="logar(dadoslogin)"  class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+            <button (click)="logar(dadoslogin)"  class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Login</button>
           </div>
         </div>
         <div class="row">
@@ -53,18 +53,18 @@
         </div>
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
-            <p>Don't have an account?
-              <a href="register2.html" class="text-primary m-l-5">
-                <b>Sign Up</b>
+            <p>Não tem uma conta? 
+              <a (click)="openModal(modalCadastro)" class="text-primary m-l-5">
+                <b>Cadastre-se</b>
               </a>
             </p>
           </div>
         </div>
       </form>
-      <form class="form-horizontal" id="recoverform" action="index.html">
+      <form class="form-horizontal" id="recoverform">
         <div class="form-group ">
           <div class="col-xs-12">
-            <h3>Recover Password</h3>
+            <h3>Recuperar Senha</h3>
             <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
           </div>
         </div>
@@ -75,10 +75,50 @@
         </div>
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">
-            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Recuperar</button>
           </div>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+
+
+
+      <!-- cadastrar -->
+      <ng-template #modalCadastro let-c="close" let-d="dismiss">
+          <div class="modal-header">
+                  <h2 class="modal-title">Cadastro</h2>
+                </div>
+                <div class="texto2">
+                  <div *ngIf="mensagemErrorCadastro">
+                          <ngb-alert type="dark" [dismissible]="false">
+                                  <strong>{{mensagemErrorCadastro}}!</strong> 
+                          </ngb-alert>
+                  </div>
+                  <div *ngIf="mensagemSucessCadastro">
+                          <ngb-alert type="dark" [dismissible]="false">
+                                  <strong>{{mensagemSucessCadastro}}!</strong> 
+                          </ngb-alert>
+                   </div>
+                <form> 
+                    <input type="text" [(ngModel)]="cadastro.login" class="form-control"  name="login" placeholder="Nome de usuario" required="" style="margin-bottom:10px;"><br>
+                    <input type="email" [(ngModel)]="cadastro.email" class="form-control"  name="email" placeholder="Email" required="" style="margin-bottom:10px;"><br>
+                  <input type="password" [(ngModel)]="cadastro.senha" class="form-control"  name="senha" placeholder="Senha" required=""  style="margin-bottom:10px;"><br>
+                  <input type="password" [(ngModel)]="cadastro.senha2" class="form-control"  name="senha" placeholder="Repetir Senha" required=""  style="margin-bottom:10px;"><br>
+                        
+                  <div style="margin-top:10px; float: right;">
+                          <div class="form-group pull-right">
+                                  <button type="button" class="btn" (click)="c('Close click')">Fechar</button>
+                        
+                                  <button type="submit" class="btn btn-primary btn-rounded" (click)="cadastrar()" >Cadastrar</button>
+                                  
+                          </div>
+                          </div>
+                  </form>
+
+                  </div>
+
+
+    </ng-template>

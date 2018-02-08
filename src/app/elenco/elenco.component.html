@@ -21,9 +21,9 @@
           <div class="d-flex m-r-20 m-l-10 hidden-md-down">
             <div class="chart-text m-r-10">
               <h6 class="m-b-0">
-                <small>THIS MONTH</small>
+                <small>Saldo</small>
               </h6>
-              <h4 class="m-t-0 text-info">$58,356</h4>
+              <h4 class="m-t-0 text-info">LTC: 58,356</h4>
             </div>
             <div class="spark-chart">
               <div id="monthchart"></div>
@@ -148,7 +148,7 @@
         <div class="row">
           <!-- column -->
           <div *ngFor="let card of plantel">
-              <div class="col-md-2"  *ngIf="card.estado==1" >
+              <div class="col-md-2"   >
             <!-- Card -->
             <div class="content2">
              
@@ -900,7 +900,7 @@
                             <div class="info">
                             {{card.nome}}<br>
                             LTC: <font color="green">{{card.valor}}</font><br>
-                            <button class="btn btn-success" (click)="comprar(card)">Comprar</button>
+                            <button class="btn btn-success" *ngIf="plantel.length<22" (click)="comprar(card)">Comprar</button>
                         </div>
                         </div>
                       </div>
