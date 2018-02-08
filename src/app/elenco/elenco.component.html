@@ -57,7 +57,7 @@
     <!-- Row -->
     <div class="row">
       <div class="col-12">
-        <h4 class="d-inline">Card with Image
+        <h4 class="d-inline">Plantel
           <a href="#code1" data-toggle="collapse">
             <i class="fa fa-code" data-toggle="tooltip" title="Get code"></i>
           </a>
@@ -77,17 +77,38 @@
 </pre>
           </div>
         </div>
+        <div>
+            <button class="btn-lg btn-primary" (click)="openModal(modalescalacao)">Escalar Equipe</button>
+        </div>
         <!-- Row -->
         <div class="row">
           <!-- column -->
-          <div *ngFor="let item of cards"  class="col-lg-3 col-md-6">
+          <div *ngFor="let card of plantel">
+          <div class="col-md-2"  *ngIf="card.estado==1" >
             <!-- Card -->
-            <div class="card">
+
              
-              <img class=" img-responsive card-elenco" src="../assets/images/big/cardbg.png" alt="Card image cap">
+              <div class="plantel" style="background-image: url('/assets/images/cards/recordista.png');" >
+                <img src="assets/images/cards/jogadores/{{card.id}}.png">
+         
+                DEF: {{card.defesa}}<br>        
+                ATK: {{card.ataque}}<br>
+                RES: {{card.resistencia}}<br>
+                <div class="posicao" *ngIf="card.posicao==1">Goleiro</div>
+                <div class="posicao" *ngIf="card.posicao==2">Zagueiro</div>
+                <div class="posicao" *ngIf="card.posicao==3">Lateral</div>
+                <div class="posicao" *ngIf="card.posicao==4">Volante</div>
+                <div class="posicao" *ngIf="card.posicao==5">Meio Campo</div>
+                <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
+               
+                <div class="info">
+                {{card.nome}}<br>
+                <button class="btn btn-primary" (click)="removerEscalar(card)">Remover</button>
+            </div>
             </div>
             <!-- Card -->
           </div>
+        </div>
           <!-- column -->
           <!-- column -->
           
@@ -97,74 +118,71 @@
       </div>
     </div>
     <!-- End Row -->
-    <!-- Row -->
     <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Content types</h4>
-        <p class="text-muted m-t-0">The building block of a card is the
-          <code>.card</code>
-          <code>.card-body</code> Use it whenever you need a padded section within a card.</p>
-        <div class="card">
-          <div class="card-body collapse show">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <div class="col-12">
+        <h4 class="d-inline">Plantel
+          <a href="#code1" data-toggle="collapse">
+            <i class="fa fa-code" data-toggle="tooltip" title="Get code"></i>
+          </a>
+        </h4>
+        <p class="text-muted m-t-0">For the code click on above code icon</p>
+        <div id="code1" class="collapse">
+          <div class="highlight">
+            <pre>
+    <code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span> <span class="na">style=</span><span class="s">"width: 20rem;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"card-img-top"</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"Card image cap"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"card-title"</span><span class="nt">&gt;</span>Card title<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card-text"</span><span class="nt">&gt;</span>Some quick example text to build on the card title and make up the bulk of the card's content.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Go somewhere<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code>
+</pre>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Titles, text, and links</h4>
-        <p class="text-muted m-t-0">Card titles are used by adding
-          <code>.card-title</code> &amp;
-          <code>.card-subtitle</code> for subtitle of card.</p>
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
+        <div>
+            <button *ngIf="plantel.length<22" class="btn-lg btn-success" (click)="openModal(modalPesquisarJogadores)">Comprar</button><br>
+            <div  *ngIf="plantel.length>=22">
+                    <ngb-alert type="success" [dismissible]="false">
+                        PLANTEL COMPLETO
+                    </ngb-alert>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Header and footer</h4>
-        <p class="text-muted m-t-0 font-12">Add an optional header and/or footer within a card.
-          <code class="btn btn-sm" href="#code2" data-toggle="collapse">HTML <i class="fa fa-code"></i></code>
-        </p>
-        <div id="code2" class="collapse highlight">
-          <pre class="prettyprint"><code class="language-html" data-lang="html">
-                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
-                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-header"</span><span class="nt">&gt;</span>
-                                Featured
-                              <span class="nt">&lt;/div&gt;</span>
-                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"card-title"</span><span class="nt">&gt;</span>Special title treatment<span class="nt">&lt;/h4&gt;</span>
-                                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card-text"</span><span class="nt">&gt;</span>With supporting text below as a natural lead-in to additional content.<span class="nt">&lt;/p&gt;</span>
-                                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Go somewhere<span class="nt">&lt;/a&gt;</span>
-                              <span class="nt">&lt;/div&gt;</span>
-                            <span class="nt">&lt;/div&gt;</span></code>
-                            </pre>
-        </div>
-        <!-- Card -->
-        <div class="card">
-          <div class="card-header">
-            Featured
+        <!-- Row -->
+        <div class="row">
+          <!-- column -->
+          <div *ngFor="let card of plantel"  class="col-md-2">
+            <!-- Card -->
+            <div class="content2">
+             
+              <div class="plantel" style="background-image: url('/assets/images/cards/recordista.png');">
+                <img src="assets/images/cards/jogadores/{{card.id}}.png">
+         
+                DEF: {{card.defesa}}<br>        
+                ATK: {{card.ataque}}<br>
+                RES: {{card.resistencia}}<br>
+                <div class="posicao" *ngIf="card.posicao==1">Goleiro</div>
+                <div class="posicao" *ngIf="card.posicao==2">Zagueiro</div>
+                <div class="posicao" *ngIf="card.posicao==3">Lateral</div>
+                <div class="posicao" *ngIf="card.posicao==4">Volante</div>
+                <div class="posicao" *ngIf="card.posicao==5">Meio Campo</div>
+                <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
+               
+                <div class="info">
+                {{card.nome}}<br>
+                LTC: <font color="red">{{card.valor}}</font><br>
+                <button class="btn btn-danger" (click)="openModalVenda(modalVenda, card)">Vender</button>
+            </div>
+            </div>
+            </div>
+            <!-- Card -->
           </div>
-          <div class="card-body">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <!-- column -->
+          <!-- column -->
+          
+          <!-- column -->
         </div>
-        <!-- Card -->
+        <!-- Row -->
       </div>
     </div>
     <!-- End Row -->
@@ -849,3 +867,103 @@
   <!-- End footer -->
   <!-- ============================================================== -->
 </div>
+
+
+
+
+
+
+
+            <!-- rpesquisa jogador -->
+            <ng-template #modalPesquisarJogadores let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                        <h2 class="modal-title">Pesquisar Jogador</h2>
+                        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">X</button>
+          
+                      </div>
+                      <div *ngIf="mensagemError">
+                      <ngb-alert [dismissible]="false">
+                        <strong>{{mensagemError}}!</strong>
+                      </ngb-alert>
+                    </div>
+                      <div class="list-players-wrap" style="margin: 0 auto;">
+                      <div class="content2">
+                        <div class="plantel" style="background-image: url('/assets/images/cards/lendario.png');" *ngFor="let card of cards">
+                            <img src="assets/images/cards/jogadores/{{card.id}}.png">
+                            DEF: {{card.defesa}}<br>
+                            ATK: {{card.ataque}}<br>
+                            RES: {{card.resistencia}}<br>
+                            <div class="posicao" *ngIf="card.posicao==1">Goleiro</div>
+                            <div class="posicao" *ngIf="card.posicao==2">Zagueiro</div>
+                            <div class="posicao" *ngIf="card.posicao==3">Lateral</div>
+                            <div class="posicao" *ngIf="card.posicao==4">Volante</div>
+                            <div class="posicao" *ngIf="card.posicao==5">Meio Campo</div>
+                            <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
+                            <div class="info">
+                            {{card.nome}}<br>
+                            LTC: <font color="green">{{card.valor}}</font><br>
+                            <button class="btn btn-success" (click)="comprar(card)">Comprar</button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+    
+          </ng-template>
+
+
+
+                      <!-- escalar jogador -->
+                      <ng-template #modalescalacao let-c="close" let-d="dismiss">
+                            <div class="modal-header">
+                                    <h2 class="modal-title">Plantel</h2>
+                                    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">X</button>
+                      
+                                  </div>
+                                  <div class="list-players-wrap" style="margin: 0 auto;">
+                                  <div class="content2">
+                                      <h5 style="color:red;">{{mensagemError}}</h5>
+                                    <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" *ngFor="let card of plantel">
+                                        <img src="assets/images/cards/jogadores/{{card.id}}.png">
+                                        DEF: {{card.defesa}}<br>
+                                        ATK: {{card.ataque}}<br>
+                                        RES: {{card.resistencia}}<br>
+                                        <div class="posicao" *ngIf="card.posicao==1">Goleiro</div>
+                                        <div class="posicao" *ngIf="card.posicao==2">Zagueiro</div>
+                                        <div class="posicao" *ngIf="card.posicao==3">Lateral</div>
+                                        <div class="posicao" *ngIf="card.posicao==4">Volante</div>
+                                        <div class="posicao" *ngIf="card.posicao==5">Meio Campo</div>
+                                        <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
+                                        <div class="info">
+                                        {{card.nome}}<br>
+                                        
+                                        <button  *ngIf="card.estado==0" class="btn btn-success" (click)="escalar(card)">Escalar</button>
+                                        <div *ngIf="card.estado==1" style="color:rgb(0, 134, 11); margin-top: 4px;">Jogador escalado</div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                      </ng-template>
+            
+
+
+
+
+          <ng-template #modalVenda let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                    <h2 class="modal-title">Vender Jogador</h2>
+      
+                  </div>
+                  <div class="info" style="text-align: center;">
+                      <h3>Deseja realmente vender o jogador {{venda.nome}}?</h3>
+                  </div>
+
+                 
+            <div class="modal-footer">
+                    <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="vender(venda); c('Close click')">Vender</button>
+            </div>
+
+
+
+      </ng-template>

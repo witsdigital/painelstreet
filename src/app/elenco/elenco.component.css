@@ -3,3 +3,91 @@
     position: relative;
     left: 15%;
 }
+
+
+.content2 {
+    margin: 0 auto;
+    text-align: center;
+    min-height: 150px;
+}
+
+
+
+.card2 {
+    text-align: center;
+    width: 150px;
+    height: 350px;
+    margin: 15px 5px;
+    background-size: 150px 255px;
+    background-repeat: no-repeat;
+    float: left;
+    font-weight: bold;
+}
+
+.card2 img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+
+}
+
+.card2 .posicao{
+    margin-top: 5px;
+    color: azure;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.plantel {
+    text-align: center;
+    width: 150px;
+    height: 350px;
+    margin: 15px 5px;
+    background-size: 150px 255px;
+    background-repeat: no-repeat;
+    float: left;
+    color: rgb(255, 251, 41);
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+.plantel img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+
+}
+
+.plantel .posicao{
+    margin: 3px;
+    color: azure;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.info {
+    margin-top: 25px;
+    color: black;
+}
+
+.info button{
+    margin-top: 5px;
+}
+
+
+.atributo img{
+    width: 22px;
+    height: 18px;
+  
+}
+
+.informacoesTime {
+    width: 100%;
+    float: left;
+}
+
+.informacoesTime .atri {
+    float: left;
+}
+

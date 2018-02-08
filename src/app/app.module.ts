@@ -1,6 +1,7 @@
 import { PainelService } from './services/painel.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +15,7 @@ import { ElencoComponent } from './elenco/elenco.component';
 import { LoginComponent } from './login/login.component';
 import { BasehomeComponent } from './basehome/basehome.component';
 import { NewsComponent } from './news/news.component';
+import { PlantelComponent } from './plantel/plantel.component';
 
 
 @NgModule({
@@ -25,14 +27,15 @@ import { NewsComponent } from './news/news.component';
     ElencoComponent,
     LoginComponent,
     BasehomeComponent,
-    NewsComponent
+    NewsComponent,
+    PlantelComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
-
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [PainelService],
   bootstrap: [AppComponent]
