@@ -56,45 +56,43 @@
     <!-- ============================================================== -->
     
     <div class="row m-t-40">
-      <div class="col-md-12">
+      <div class="col-md-10">
         <h4 class="card-title">Notícias recentes</h4>
         <h6 class="card-subtitle m-b-20 text-muted">Acompanhe as movimentações que ocorre no mundo da bola</h6>
       </div>
-    </div>
-    <div class="card-columns el-element-overlay">
-      <div *ngFor="let item of news"  class="card">
-        <div class="el-card-item">
-          <div class="el-card-avatar el-overlay-1">
-            <img src="{{item.img}}" alt="user" />
+      <div class="col-md-2">
+        <div class="btn-group">
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ação
+          </button>
+          <div class="dropdown-menu animated flipInY">
+              <a class="dropdown-item" href="#">Nova Notícia</a>
+              
           </div>
-          <div class="el-card-content">
-            <h3 class="box-title">{{item.titulo}}</h3>
-            <small>{{item.descricao}}</small>
-            <br/> </div>
-        </div>
+      </div> 
       </div>
-      
-    </div>
-    <!-- ============================================================== -->
-    <!-- End PAge Content -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right sidebar -->
-    <!-- ============================================================== -->
-    <!-- .right-sidebar -->
     
-    <!-- ============================================================== -->
-    <!-- End Right sidebar -->
-    <!-- ============================================================== -->
-  </div>
-  <!-- ============================================================== -->
-  <!-- End Container fluid  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- footer -->
-  <!-- ============================================================== -->
+    </div>
 
-  <!-- ============================================================== -->
-  <!-- End footer -->
-  <!-- ============================================================== -->
+    <div class="row">
+      <!-- Column -->
+      <div *ngFor="let item of news" class="col-lg-4">
+          <div class="card">
+              <img class="card-img-top img-responsive" src="{{item.img}}" alt="Card image cap">
+              <div class="card-body">
+                  <ul class="list-inline font-14">
+                      <li class="p-l-0">20 May 2016</li>
+                      <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                  </ul>
+                  <h3 class="font-normal">{{item.titulo}}</h3>
+                  <p class="m-b-0 m-t-10">{{item.descricao}}</p>
+                  <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Detalhes</button>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+  </div>
+
 </div>
