@@ -57,7 +57,7 @@
     <!-- Row -->
     <div class="row">
       <div class="col-12">
-        <h4 class="d-inline">Plantel
+        <h4 class="d-inline">Escalação
           <a href="#code1" data-toggle="collapse">
             <i class="fa fa-code" data-toggle="tooltip" title="Get code"></i>
           </a>
@@ -86,11 +86,8 @@
           <div *ngFor="let card of plantel">
           <div class="col-md-2"  *ngIf="card.estado==1" >
             <!-- Card -->
-
-             
               <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" >
                 <img src="assets/images/cards/jogadores/{{card.id}}.png">
-         
                 DEF: {{card.defesa}}<br>        
                 ATK: {{card.ataque}}<br>
                 RES: {{card.resistencia}}<br>
@@ -100,11 +97,10 @@
                 <div class="posicao" *ngIf="card.posicao==4">Volante</div>
                 <div class="posicao" *ngIf="card.posicao==5">Meio Campo</div>
                 <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
-               
                 <div class="info">
                 {{card.nome}}<br>
                 <button class="btn btn-primary" (click)="removerEscalar(card)">Remover</button>
-            </div>
+                </div>
             </div>
             <!-- Card -->
           </div>
@@ -151,7 +147,8 @@
         <!-- Row -->
         <div class="row">
           <!-- column -->
-          <div *ngFor="let card of plantel"  class="col-md-2">
+          <div *ngFor="let card of plantel">
+              <div class="col-md-2"  *ngIf="card.estado==1" >
             <!-- Card -->
             <div class="content2">
              
@@ -177,6 +174,7 @@
             </div>
             <!-- Card -->
           </div>
+        </div>
           <!-- column -->
           <!-- column -->
           
@@ -888,7 +886,7 @@
                     </div>
                       <div class="list-players-wrap" style="margin: 0 auto;">
                       <div class="content2">
-                        <div class="plantel" style="background-image: url('/assets/images/cards/lendario.png');" *ngFor="let card of cards">
+                        <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" *ngFor="let card of cards">
                             <img src="assets/images/cards/jogadores/{{card.id}}.png">
                             DEF: {{card.defesa}}<br>
                             ATK: {{card.ataque}}<br>
