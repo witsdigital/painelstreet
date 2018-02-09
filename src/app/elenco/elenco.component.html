@@ -78,13 +78,18 @@
           </div>
         </div>
         <div>
-            <button class="btn-lg btn-primary" (click)="openModal(modalescalacao)">Escalar Equipe</button>
-        </div>
+            <button *ngIf="count.length<11" class="btn-lg btn-primary" (click)="openModal(modalescalacao)">Escalar Equipe</button>
+            <div  *ngIf="count.length>=11">
+              <ngb-alert type="success" [dismissible]="false">
+                  Equipe Escalada
+              </ngb-alert>
+            </div>
+          </div>
         <!-- Row -->
         <div class="row">
           <!-- column -->
-          <div *ngFor="let card of plantel">
-          <div class="col-md-2"  *ngIf="card.estado==1" >
+          <div *ngFor="let card of plantel;">
+          <div class="col-md-2"  *ngIf="card.estado==1;" >
             <!-- Card -->
               <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" >
                 <img src="assets/images/cards/jogadores/{{card.id}}.png">
@@ -99,7 +104,7 @@
                 <div class="posicao" *ngIf="card.posicao==6">Atacante</div>
                 <div class="info">
                 {{card.nome}}<br>
-                <button class="btn btn-primary" (click)="removerEscalar(card)">Remover</button>
+                <button class="btn btn-primary" (click)="removerEscalar(card); mensagemError = ''">Remover</button>
                 </div>
             </div>
             <!-- Card -->
@@ -168,7 +173,7 @@
                 <div class="info">
                 {{card.nome}}<br>
                 LTC: <font color="red">{{card.valor}}</font><br>
-                <button class="btn btn-danger" (click)="openModalVenda(modalVenda, card)">Vender</button>
+                <button class="btn btn-danger" (click)="openModalVenda(modalVenda, card); mensagemError = ''">Vender</button>
             </div>
             </div>
             </div>
@@ -939,6 +944,7 @@
                                         {{card.nome}}<br>
                                         
                                         <button  *ngIf="card.estado==0" class="btn btn-success" (click)="escalar(card); mensagemError = ''">Escalar</button>
+                          
                                         <button *ngIf="card.estado==1" class="btn btn-primary" (click)="removerEscalar(card)">Remover</button>
                                       </div>
                                     </div>

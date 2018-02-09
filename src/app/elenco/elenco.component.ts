@@ -22,6 +22,8 @@ export class ElencoComponent implements OnInit {
   venda: any;
   dados: any;
 
+  count: any = [];
+
 
   constructor(public service: PainelService, private modal: NgbModal) {
 
@@ -32,6 +34,7 @@ export class ElencoComponent implements OnInit {
     setInterval(() => { 
       this.getPlantel();
       this.getTimeAtributos();
+      this.calcTitular();
      }, 1000);
 
     
@@ -196,6 +199,15 @@ vender(item){
   openModalVenda(modal, card){
     this.venda = card;
     this.modal.open(modal);
+  }
+
+  calcTitular(){
+    this.count = [];
+    for (var i = 0; i < this.plantel.length; i++){
+      if(this.plantel[i].estado == 1){
+        this.count.push(this.plantel[i]);
+      }
+    }
   }
 
 

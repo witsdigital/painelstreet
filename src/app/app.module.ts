@@ -15,7 +15,7 @@ import { ElencoComponent } from './elenco/elenco.component';
 import { LoginComponent } from './login/login.component';
 import { BasehomeComponent } from './basehome/basehome.component';
 import { NewsComponent } from './news/news.component';
-import { PlantelComponent } from './plantel/plantel.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { PlantelComponent } from './plantel/plantel.component';
     LoginComponent,
     BasehomeComponent,
     NewsComponent,
-    PlantelComponent
+    TicketsComponent
   ],
   imports: [
     BrowserModule,
