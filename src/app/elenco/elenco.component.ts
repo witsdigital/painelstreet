@@ -80,8 +80,11 @@ escalar(card){
   this.dados = {
     cod_card: card.id,
     cod_time: this.time[0].id,
+    id: card.id_plantel,
+    posicao: card.posicao,
     estado: 1
   }
+  console.log(card);
 
   this.service.PostEscalar(this.dados).then((data)=>{
       this.responseData = data;
@@ -97,8 +100,11 @@ removerEscalar(card){
   this.dados = {
     cod_card: card.id,
     cod_time: this.time[0].id,
+    id: card.id_plantel,
+    posicao: card.posicao,
     estado: 0
   }
+
   this.service.PostEscalar(this.dados).then((data)=>{
       this.responseData = data;
   },(err)=>{

@@ -10,7 +10,10 @@ import { PainelService } from '../services/painel.service';
 export class LoginComponent implements OnInit {
   dadoslogin: any = {};
   cadastro: any = {};
+  recuperar: any = {};;
   login: any;
+  
+
   responseData : any = [];
 
   mensagemError;
@@ -33,8 +36,6 @@ export class LoginComponent implements OnInit {
 
 
   logar() {
-
-
     if(!this.dadoslogin.login || !this.dadoslogin.senha){
       this.mensagemError = "Preencha os campos"
       console.log('Digite dados validos');
@@ -100,6 +101,27 @@ cadastrar() {
     
 }
 
+}
+
+recuperarSenha() {
+
+  this.service.postRecsenha(this.recuperar.email).then((result) => {
+    this.responseData = result;
+    console.log(this.responseData.permissao);
+    if(this.responseData.mensage==0){
+      this.mensagemSucessCadastro = '';
+     this.mensagemErrorCadastro = "Email não cadastrado"
+        
+    }else{
+    this.mensagemErrorCadastro = ''; 
+    this.mensagemSucessCadastro = "Nova senha enviada para seu email"
+
+    }
+
+
+  }, (err) => {
+    // Error log
+  });
 }
 
 
