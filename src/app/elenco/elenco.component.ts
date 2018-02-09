@@ -88,6 +88,15 @@ escalar(card){
 
   this.service.PostEscalar(this.dados).then((data)=>{
       this.responseData = data;
+      if(this.responseData.mensage==1){
+        this.mensagemError = "Desculpe, ocorreu um erro";
+       } 
+       if(this.responseData.mensage==2){
+        this.mensagemError = "Você ja escalou o numero maximo de jogadores dessa posição";
+       }
+       if(this.responseData.mensage==3){
+        this.mensagemError = "Você ja atingiu o limite de Jogadores";
+       }
   },(err)=>{
 
   });
@@ -105,7 +114,7 @@ removerEscalar(card){
     estado: 0
   }
 
-  this.service.PostEscalar(this.dados).then((data)=>{
+  this.service.removerEscalar(this.dados).then((data)=>{
       this.responseData = data;
   },(err)=>{
 

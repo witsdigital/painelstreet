@@ -919,7 +919,11 @@
                                   </div>
                                   <div class="list-players-wrap" style="margin: 0 auto;">
                                   <div class="content2">
-                                      <h5 style="color:red;">{{mensagemError}}</h5>
+                                      <div *ngIf="mensagemError">
+                                          <ngb-alert [dismissible]="false">
+                                            <strong>{{mensagemError}}!</strong>
+                                          </ngb-alert>
+                                        </div>
                                     <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" *ngFor="let card of plantel">
                                         <img src="assets/images/cards/jogadores/{{card.id}}.png">
                                         DEF: {{card.defesa}}<br>
@@ -934,9 +938,9 @@
                                         <div class="info">
                                         {{card.nome}}<br>
                                         
-                                        <button  *ngIf="card.estado==0" class="btn btn-success" (click)="escalar(card)">Escalar</button>
-                                        <div *ngIf="card.estado==1" style="color:rgb(0, 134, 11); margin-top: 4px;">Jogador escalado</div>
-                                    </div>
+                                        <button  *ngIf="card.estado==0" class="btn btn-success" (click)="escalar(card); mensagemError = ''">Escalar</button>
+                                        <button *ngIf="card.estado==1" class="btn btn-primary" (click)="removerEscalar(card)">Remover</button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
