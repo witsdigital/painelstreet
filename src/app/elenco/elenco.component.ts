@@ -90,18 +90,20 @@ escalar(card){
     posicao: card.posicao,
     estado: 1
   }
-  console.log(card);
 
   this.service.PostEscalar(this.dados).then((data)=>{
       this.responseData = data;
       if(this.responseData.mensage==1){
         this.mensagemError = "Desculpe, ocorreu um erro";
+        alert(this.mensagemError);
        } 
        if(this.responseData.mensage==2){
         this.mensagemError = "Você ja escalou o numero maximo de jogadores dessa posição";
+        alert(this.mensagemError);
        }
        if(this.responseData.mensage==3){
         this.mensagemError = "Você ja atingiu o limite de Jogadores";
+        alert(this.mensagemError);
        }
   },(err)=>{
 
@@ -180,12 +182,15 @@ if ( this.plantel.length < 22) {
              console.log(this.responseData);
              if(this.responseData.permissao==1){
               this.mensagemError = "Desculpe, ocorreu um erro";
+              alert(this.mensagemError);
              } 
              if(this.responseData.permissao==2){
               this.mensagemError = "Você ja comprou esse Jogador";
+              alert(this.mensagemError);
              }
              if(this.responseData.permissao==3){
               this.mensagemError = "Você ja atingiu o limite de Jogadores para a posição";
+              alert(this.mensagemError);
              }
              
               
@@ -197,7 +202,9 @@ if ( this.plantel.length < 22) {
     }
 
   } else {
+    
     this.mensagemError = "Você não tem saldo suficiente para comprar esse jogador";
+    alert(this.mensagemError);
   }
 
     } 
@@ -219,6 +226,7 @@ vender(item){
     console.log(this.responseData);
     if(this.responseData.permissao==0){
      this.mensagemError = "Desculpe, ocorreu um erro";
+     alert(this.mensagemError);
     } 
   }, (err) => {
    console.log('erro')

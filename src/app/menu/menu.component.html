@@ -8,22 +8,22 @@
         <img src="assets/images/users/profile.png" alt="user" /> </div>
       <!-- User profile text-->
       <div class="profile-text">
-        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
+        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{userData[0].nome}} {{userData[0].sobrenome}}</a>
         <div class="dropdown-menu animated flipInY">
           <a class="dropdown-item" [routerLink]="['/']">Home</a>
 
-          <a rout class="dropdown-item">
-            <i class="ti-user"></i> My Profile</a>
-          <a href="#" class="dropdown-item">
-            <i class="ti-wallet"></i> My Balance</a>
-          <a href="#" class="dropdown-item">
-            <i class="ti-email"></i> Inbox</a>
+          <a  class="dropdown-item">
+            <i class="ti-user"></i> Meu Perfil</a>
+          <a [routerLink]="['/elenco']" class="dropdown-item">
+            <i class="ti-wallet"></i> Plantel </a>
+          <a [routerLink]="['/tickets']" class="dropdown-item">
+            <i class="ti-email"></i> Tickets</a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="ti-settings"></i> Account Setting</a>
+            <i class="ti-settings"></i> Configurações</a>
           <div class="dropdown-divider"></div>
-          <a href="login.html" class="dropdown-item">
-            <i class="fa fa-power-off"></i> Logout</a>
+          <a (click)="sair()" class="dropdown-item">
+            <i class="fa fa-power-off"></i> Sair</a>
         </div>
       </div>
     </div>
@@ -182,8 +182,8 @@
       <i class="ti-settings"></i>
     </a>
     <!-- item-->
-    <a [routerLink]="['/tickets']" class="link" data-toggle="tooltip" title="Ticket">
-      <i class="mdi mdi-gmail"></i>
+    <a [routerLink]="['/tickets']" class="link" data-toggle="tooltip" title="Tickets">
+      <i class="ti-email"></i>
     </a>
     <!-- item-->
     <a (click)="sair()" class="link" data-toggle="tooltip" title="Sair">

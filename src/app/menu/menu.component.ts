@@ -7,8 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  
+  userData: any = [];
+  constructor(private router: Router) {
+    this.userData = JSON.parse(localStorage.getItem('userData'));
+   }
 
   ngOnInit() {
   }
