@@ -1,0 +1,5 @@
+.scrollchat {
+    overflow: auto;
+    height: 450px;
+    overflow-y: scroll;
+}

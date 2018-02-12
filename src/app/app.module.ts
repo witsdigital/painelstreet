@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { BasehomeComponent } from './basehome/basehome.component';
 import { NewsComponent } from './news/news.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { SaldoComponent } from './saldo/saldo.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { TicketsComponent } from './tickets/tickets.component';
     LoginComponent,
     BasehomeComponent,
     NewsComponent,
-    TicketsComponent
+    TicketsComponent,
+    SaldoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

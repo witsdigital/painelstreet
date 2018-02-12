@@ -13,6 +13,7 @@ export class ElencoComponent implements OnInit {
   plantel: any = [];
   userData: any;
   time: any = [];
+  escalacao: any = [];
   
   responseData: any = [];
   mensagemError;
@@ -22,19 +23,21 @@ export class ElencoComponent implements OnInit {
   venda: any;
   dados: any;
 
-  count: any = [];
+  saldo: any = [];
 
+ 
 
   constructor(public service: PainelService, private modal: NgbModal) {
 
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.getTime();
-
+  
 
     setInterval(() => { 
       this.getPlantel();
       this.getTimeAtributos();
       this.calcTitular();
+ 
      }, 1000);
 
     
@@ -139,10 +142,26 @@ getTimeAtributos() {
 
 }
 
+  
+getSaldo() {
+  this.service.getSaldo(this.userData[0].id).then((data)=>{
+      this.saldo = data;
+  },(err)=>{
+
+  });
+
+
+}
+
+
+
 
 
   comprar(item) {
 
+  this.getSaldo();
+
+  if(this.saldo.saldo >= item.valor) {
 
 if ( this.plantel.length < 22) {
 
@@ -151,13 +170,15 @@ if ( this.plantel.length < 22) {
     cod_card: item.id,
     cod_time: this.time[0].id,
     estado: 0,
-    posicao: item.posicao
+    posicao: item.posicao,
+    cod_usuario: this.userData[0].id,
+    valor: item.valor
   }
 
             this.service.postPlantelCompra(this.dados).then((result) => {
              this.responseData = result;
              console.log(this.responseData);
-             if(this.responseData.permissao==0){
+             if(this.responseData.permissao==1){
               this.mensagemError = "Desculpe, ocorreu um erro";
              } 
              if(this.responseData.permissao==2){
@@ -175,11 +196,25 @@ if ( this.plantel.length < 22) {
       this.mensagemError='';
     }
 
+  } else {
+    this.mensagemError = "Você não tem saldo suficiente para comprar esse jogador";
+  }
+
     } 
 
 
 vender(item){
-  this.service.PostVenda(item).then((result) => {
+
+  this.dados = {
+    cod_card: item.id,
+    cod_time: this.time[0].id,
+    posicao: item.posicao,
+    cod_usuario: this.userData[0].id,
+    valor: item.valor,
+    id_plantel: item.id_plantel
+  }
+
+  this.service.PostVenda(this.dados).then((result) => {
     this.responseData = result;
     console.log(this.responseData);
     if(this.responseData.permissao==0){
@@ -202,10 +237,10 @@ vender(item){
   }
 
   calcTitular(){
-    this.count = [];
+    this.escalacao = [];
     for (var i = 0; i < this.plantel.length; i++){
       if(this.plantel[i].estado == 1){
-        this.count.push(this.plantel[i]);
+        this.escalacao.push(this.plantel[i]);
       }
     }
   }

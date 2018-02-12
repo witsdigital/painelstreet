@@ -6,48 +6,7 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <div class="row page-titles">
-      <div class="col-md-5 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="javascript:void(0)">Home</a>
-          </li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </div>
-      <div class="col-md-7 col-4 align-self-center">
-        <div class="d-flex m-t-10 justify-content-end">
-          <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-            <div class="chart-text m-r-10">
-              <h6 class="m-b-0">
-                <small>Saldo</small>
-              </h6>
-              <h4 class="m-t-0 text-info">LTC: 58,356</h4>
-            </div>
-            <div class="spark-chart">
-              <div id="monthchart"></div>
-            </div>
-          </div>
-          <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-            <div class="chart-text m-r-10">
-              <h6 class="m-b-0">
-                <small>LAST MONTH</small>
-              </h6>
-              <h4 class="m-t-0 text-primary">$48,356</h4>
-            </div>
-            <div class="spark-chart">
-              <div id="lastmonthchart"></div>
-            </div>
-          </div>
-          <div class="">
-            <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10">
-              <i class="ti-settings text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-saldo></app-saldo>
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -78,18 +37,27 @@
           </div>
         </div>
         <div>
-            <button *ngIf="count.length<11" class="btn-lg btn-primary" (click)="openModal(modalescalacao)">Escalar Equipe</button>
-            <div  *ngIf="count.length>=11">
+            
+            <button *ngIf="escalacao.length<11" class="btn-lg btn-primary" (click)="openModal(modalescalacao)">Escalar Equipe</button>
+            <div  *ngIf="escalacao.length>=11">
               <ngb-alert type="success" [dismissible]="false">
                   Equipe Escalada
               </ngb-alert>
             </div>
+            <div  *ngIf="escalacao == ''">
+                <br> 
+                <ngb-alert type="success" [dismissible]="false">
+                    Nenhum Jogador
+                </ngb-alert>
+                <br>
+              </div>
+              
           </div>
         <!-- Row -->
         <div class="row">
           <!-- column -->
-          <div *ngFor="let card of plantel;">
-          <div class="col-md-2"  *ngIf="card.estado==1;" >
+          <div *ngFor="let card of escalacao;">
+          <div class="col-md-2"  >
             <!-- Card -->
               <div class="plantel" style="background-image: url('/assets/images/cards/supremo.png');" >
                 <img src="assets/images/cards/jogadores/{{card.id}}.png">
@@ -142,12 +110,21 @@
           </div>
         </div>
         <div>
+            
             <button *ngIf="plantel.length<22" class="btn-lg btn-success" (click)="openModal(modalPesquisarJogadores)">Comprar</button><br>
             <div  *ngIf="plantel.length>=22">
                     <ngb-alert type="success" [dismissible]="false">
                         PLANTEL COMPLETO
                     </ngb-alert>
+                    
             </div>
+            <div  *ngIf="plantel==''">
+              <br>
+                <ngb-alert type="success" [dismissible]="false">
+                    Nenhum Jogador
+                </ngb-alert>
+               <br>
+              </div>
         </div>
         <!-- Row -->
         <div class="row">
@@ -881,7 +858,7 @@
             <ng-template #modalPesquisarJogadores let-c="close" let-d="dismiss">
                 <div class="modal-header">
                         <h2 class="modal-title">Pesquisar Jogador</h2>
-                        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">X</button>
+                        <button type="button" class="btn" (click)="c('Close click')">X</button>
           
                       </div>
                       <div *ngIf="mensagemError">
@@ -919,7 +896,7 @@
                       <ng-template #modalescalacao let-c="close" let-d="dismiss">
                             <div class="modal-header">
                                     <h2 class="modal-title">Plantel</h2>
-                                    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">X</button>
+                                    <button type="button" class="btn " (click)="c('Close click')">X</button>
                       
                                   </div>
                                   <div class="list-players-wrap" style="margin: 0 auto;">

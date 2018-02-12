@@ -97,6 +97,12 @@ export class PainelService {
 }
 
 
+apiLTC(): Observable<any[]>{
+  return this.http.get('https://www.mercadobitcoin.net/api/LTC/ticker/')
+  .map(response=>response.json())
+  .catch(err=> Observable.throw(err.message));
+}
+
 getTime(credentials) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
@@ -199,7 +205,46 @@ getTime(credentials) {
   }
 
 
+// transacoes
 
+getSaldo(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/getSaldo', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+// chat
+
+
+
+getChat(): Observable<any[]>{
+  return this.http.get(this.api+'chat/mensagens')
+  .map(response=>response.json())
+  .catch(err=> Observable.throw(err.message));
+}
+
+
+postMensagens(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'chat/enviarmensagem', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
 
   //erro
   private handleError(error: Response) {
