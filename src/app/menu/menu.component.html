@@ -42,7 +42,6 @@
         <li>
           <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
             <i class="mdi mdi-gauge"></i>
-           
             <span class="hide-menu">Desafios </span>
           </a>
           <ul aria-expanded="false" class="collapse">
@@ -64,9 +63,6 @@
             <li>
               <a [routerLink]="['/elenco']">Plantel</a>
             </li>
-            <li>
-              <a href="../minisidebar/index.html">Escalação</a>
-            </li>
 
           </ul>
         </li>
@@ -77,10 +73,10 @@
           </a>
           <ul aria-expanded="false" class="collapse">
             <li>
-              <a href="app-calendar.html">Depósito</a>
+              <a [routerLink]="['/deposito']">Depósito</a>
             </li>
             <li>
-              <a href="app-calendar.html">Saque</a>
+              <a [routerLink]="['/saque']">Saque</a>
             </li>
 
           </ul>

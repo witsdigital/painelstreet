@@ -18,6 +18,8 @@ import { NewsComponent } from './news/news.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { SaldoComponent } from './saldo/saldo.component';
 import { ChatComponent } from './chat/chat.component';
+import { DepositoComponent } from './deposito/deposito.component';
+import { SaqueComponent } from './saque/saque.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ChatComponent } from './chat/chat.component';
     NewsComponent,
     TicketsComponent,
     SaldoComponent,
-    ChatComponent
+    ChatComponent,
+    DepositoComponent,
+    SaqueComponent
   ],
   imports: [
     BrowserModule,

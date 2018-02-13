@@ -18,7 +18,7 @@
     <div class="row">
 
         <div class="card">
-             <button  class="btn-lg btn-primary" (click)="openModal(ticket);">Novo ticket</button>
+             <button  class="btn-lg btn-primary" (click)="openModal(saque);">Novo Saque</button>
         </div>
        
     </div>
@@ -29,30 +29,39 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Support Ticket List</h4>
-                    <h6 class="card-subtitle">List of ticket opend by customers</h6>
+                    <h4 class="card-title">Saques</h4>
+                    <h6 class="card-subtitle">Só é permitido sacar duas vezes o valor que foi depositado</h6>
                     <div class="row m-t-40">
                         <!-- Column -->
                         <div class="col-md-6 col-lg-3 col-xlg-3">
                             <div class="card card-inverse card-info">
                                 <div class="box bg-info text-center">
                                     <h1 class="font-light text-white">2,064</h1>
-                                    <h6 class="text-white">Total de Tickets</h6>
+                                    <h6 class="text-white">Saques</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
                         <div class="col-md-6 col-lg-3 col-xlg-3">
-                            <div class="card card-primary card-inverse">
-                                <div class="box text-center">
-                                    <h1 class="font-light text-white">1,738</h1>
-                                    <h6 class="text-white">Resolvidos</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
+                          <div class="card card-primary card-inverse">
+                              <div class="box text-center">
+                                  <h1 class="font-light text-white">1,738</h1>
+                                  <h6 class="text-white">Aceitos</h6>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Column --><!-- Column -->
                         <div class="col-md-6 col-lg-3 col-xlg-3">
-                            <div class="card card-inverse card-success">
+                          <div class="card card-danger card-inverse">
+                              <div class="box text-center">
+                                  <h1 class="font-light text-white">1,738</h1>
+                                  <h6 class="text-white">Rejeitados</h6>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Column -->
+                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                            <div class="card card-inverse card-dark">
                                 <div class="box text-center">
                                     <h1 class="font-light text-white">1100</h1>
                                     <h6 class="text-white">Pedentes</h6>
@@ -65,8 +74,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Assunto</th>
-                                    <th>Data</th>
+                                    <th>Valor</th>
+                                    <th>Codigo da transação</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
@@ -94,9 +103,9 @@
 
 
 
-<ng-template #ticket let-c="close" let-d="dismiss">
+<ng-template #saque let-c="close" let-d="dismiss">
     <div class="modal-header">
-            <h2 class="modal-title">Novo Ticket</h2>
+            <h2 class="modal-title">Saque</h2>
     </div>
 
 
@@ -111,32 +120,12 @@
                             </ngb-alert>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputuname">Assunto*</label>
+                        <label for="exampleInputuname">Valor*</label>
                         <div class="input-group">
-                            <input type="text" [(ngModel)]="tickets.assunto" name="assunto" class="form-control" id="exampleInputuname" placeholder="Assunto">
+                            <input type="text" [(ngModel)]="saque.valor" name="valor" class="form-control" id="exampleInputuname" placeholder="Valor">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="departamento">Departamento:*</label>
-                        <select [(ngModel)]="tickets.departamento" name="departamento" class="form-control">
-                            <option value="1" selected>Suporte</option>
-                            <option value="2">Reporte</option>
-                            <option value="3">Saques e depositos</option>
-                          </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="prioridade">Prioridade:*</label>
-                                      <select [(ngModel)]="tickets.prioridade" name="prioridade" class="form-control">
-                                        <option value="1" selected>Baixa</option>
-                                        <option value="2">Media</option>
-                                        <option value="3">Alta</option>
-                                        <option value="4">Muito Alta</option>
-                          </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem:*</label>
-                        <textarea [(ngModel)]="tickets.mensagem" name="mensagem" class="form-control" rows="8" id="comment" placeholder="Mensagem*"></textarea>
-                    </div>
+                 
                     
             </div>
         </div>
@@ -146,34 +135,10 @@
   <!-- Row -->
   <div class="modal-footer">
     <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
-    <button type="button" class="btn btn-primary" (click)="enviar(tickets)">Enviar</button>
+    <button type="button" class="btn btn-primary" (click)="enviar(tickets)">Solicitar</button>
 </div>
 
 
 </ng-template>
 
 
-
-<ng-template #deleteticket let-c="close" let-d="dismiss">
-        <div class="modal-header">
-                <h2 class="modal-title">Confimar exclusão</h2>
-        </div>
-    
-    
-    <!-- Row -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Deseja realmente excluir o TiCKET?</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-footer">
-            <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
-            <button type="button" class="btn btn-primary" (click)="deleteTicketID(); c('Close click')">Confirmar</button>
-        </div>
-        
-</ng-template>
