@@ -7,6 +7,7 @@ import { NewsComponent } from './news/news.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { DepositoComponent } from './deposito/deposito.component';
 import { DesafioComponent } from './desafio/desafio.component';
+import { DetalheNoticiaComponent } from './detalhe-noticia/detalhe-noticia.component';
 
 
 
@@ -20,6 +21,7 @@ export const ROUTES: Routes = [
     { path: 'tickets', component: TicketsComponent },
     { path: 'deposito', component: DepositoComponent },
     { path: 'saque', component: SaqueComponent },
-    { path: 'desafios', component: DesafioComponent }
+    { path: 'desafios', component: DesafioComponent },
+    {path: 'news/:id', component: DetalheNoticiaComponent},
    
 ]
