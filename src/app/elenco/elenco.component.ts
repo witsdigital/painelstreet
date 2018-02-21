@@ -24,6 +24,21 @@ export class ElencoComponent implements OnInit {
   dados: any;
 
   saldo: any = [];
+  dadosSaldo: any;
+
+
+  dadosTreinamento: any;
+  treinamento: any = {
+    resistencia: 0,
+		ataque: 0,
+		defesa: 0,
+		proximo_resistencia: 0,
+		proximo_ataque: 0,
+		proximo_defesa: 0,
+		defesa_valor: 0,
+		ataque_valor: 0,
+		resistencia_valor: 0
+  };
 
  
 
@@ -37,6 +52,7 @@ export class ElencoComponent implements OnInit {
       this.getPlantel();
       this.getTimeAtributos();
       this.calcTitular();
+      this.getTreinamento();
  
      }, 1000);
 
@@ -146,7 +162,12 @@ getTimeAtributos() {
 
   
 getSaldo() {
-  this.service.getSaldo(this.userData[0].id).then((data)=>{
+
+  this.dadosSaldo = {
+    id_user: this.userData[0].id,
+    cod_time: this.time[0].id
+  }
+  this.service.getSaldo(this.dadosSaldo).then((data)=>{
       this.saldo = data;
   },(err)=>{
 
@@ -161,7 +182,7 @@ getSaldo() {
 
   comprar(item) {
 
-  this.getSaldo();
+    this.getSaldo();
 
   if(this.saldo.saldo >= item.valor) {
 
@@ -251,6 +272,50 @@ vender(item){
         this.escalacao.push(this.plantel[i]);
       }
     }
+  }
+
+
+  treinar(item, tipo){
+
+  this.getSaldo();
+
+  if(this.saldo.saldo >= item) {
+
+    this.dadosTreinamento = {
+      tipo: tipo,
+      cod_time: this.time[0].id,
+      valor: item
+    }
+
+    this.service.postTreinamento(this.dadosTreinamento).then((result) => {
+      this.responseData = result;
+      console.log(this.responseData);
+      if(this.responseData.permissao==1){
+       console.log('foi');
+      } 
+      if(this.responseData.permissao==2){
+       alert('desculpe. ocorreu um erro. tente novamente mais tarde');
+      }
+
+    },(err)=>{
+
+    });
+  } else {
+    alert("Saldo insuficiente");
+  }
+
+  }
+
+
+  getTreinamento(){
+    this.service.getTreinamento(this.time[0].id).then((data)=>{
+      this.treinamento = data;
+      console.log(this.treinamento);
+
+    },(err)=>{
+
+    });
+
   }
 
 

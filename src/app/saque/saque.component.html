@@ -36,8 +36,8 @@
                         <div class="col-md-6 col-lg-3 col-xlg-3">
                             <div class="card card-inverse card-info">
                                 <div class="box bg-info text-center">
-                                    <h1 class="font-light text-white">2,064</h1>
-                                    <h6 class="text-white">Saques</h6>
+                                    <h1 class="font-light text-white">{{count.total}}</h1>
+                                    <h6 class="text-white">Total</h6>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="col-md-6 col-lg-3 col-xlg-3">
                           <div class="card card-primary card-inverse">
                               <div class="box text-center">
-                                  <h1 class="font-light text-white">1,738</h1>
+                                  <h1 class="font-light text-white">{{count.aceitos}}</h1>
                                   <h6 class="text-white">Aceitos</h6>
                               </div>
                           </div>
@@ -54,7 +54,7 @@
                         <div class="col-md-6 col-lg-3 col-xlg-3">
                           <div class="card card-danger card-inverse">
                               <div class="box text-center">
-                                  <h1 class="font-light text-white">1,738</h1>
+                                  <h1 class="font-light text-white">{{count.rejeitados}}</h1>
                                   <h6 class="text-white">Rejeitados</h6>
                               </div>
                           </div>
@@ -63,8 +63,8 @@
                         <div class="col-md-6 col-lg-3 col-xlg-3">
                             <div class="card card-inverse card-dark">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">1100</h1>
-                                    <h6 class="text-white">Pedentes</h6>
+                                    <h1 class="font-light text-white">{{count.pendentes}}</h1>
+                                    <h6 class="text-white">Pendentes</h6>
                                 </div>
                             </div>
                         </div>
@@ -75,15 +75,13 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Valor</th>
-                                    <th>Codigo da transação</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of ticketAbertos">
+                                <tr *ngFor="let item of saquesabertos">
                                     <td>{{item.id}}</td>
-                                    <td>{{item.assunto}}</td>
-                                    <td>{{item.data | date:'M/d/yy'}}</td>
+                                    <td>{{item.valor_saque}}</td>
                                     <td>
                                         <button type="button" (click)="OpenModalDel(deleteticket, item)" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
                                     </td>
@@ -114,6 +112,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
+                <h4>Limite de saque disponivel: {{limite.limite}}</h4>
                     <div *ngIf="mensagem">
                             <ngb-alert [dismissible]="false">
                                     <strong>{{mensagem}}!</strong> 
@@ -122,7 +121,7 @@
                     <div class="form-group">
                         <label for="exampleInputuname">Valor*</label>
                         <div class="input-group">
-                            <input type="text" [(ngModel)]="saque.valor" name="valor" class="form-control" id="exampleInputuname" placeholder="Valor">
+                            <input type="text" [(ngModel)]="dadossaque.valor" name="valor" class="form-control" id="exampleInputuname" placeholder="Exemplo: 1.36">
                         </div>
                     </div>
                  
@@ -135,10 +134,35 @@
   <!-- Row -->
   <div class="modal-footer">
     <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
-    <button type="button" class="btn btn-primary" (click)="enviar(tickets)">Solicitar</button>
+    <button type="button" class="btn btn-primary" (click)="enviar()">Solicitar</button>
 </div>
 
 
 </ng-template>
 
 
+
+
+<ng-template #deleteticket let-c="close" let-d="dismiss">
+        <div class="modal-header">
+                <h2 class="modal-title">Confimar exclusão</h2>
+        </div>
+    
+    
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Deseja realmente excluir o pedido de saque?</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+            <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="deleteSaqueID(); c('Close click')">Confirmar</button>
+        </div>
+        
+</ng-template>

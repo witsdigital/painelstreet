@@ -11,6 +11,8 @@ export class SaldoComponent implements OnInit {
   userData: any = [];
   saldo: any = [];
 
+  dadosSaldo: any;
+
   valorLTC: any = {
     ticker: { buy: "",
      date: '',
@@ -22,13 +24,15 @@ export class SaldoComponent implements OnInit {
     }
   };
 
+  time: any =[];
+
   constructor(public service: PainelService) {
 
     
 
     this.userData = JSON.parse(localStorage.getItem('userData'));
 
-    
+    this.getTime();
 
     setInterval(() => { 
 
@@ -36,7 +40,7 @@ export class SaldoComponent implements OnInit {
  
      }, 1000);
 
-
+     
 
    }
 
@@ -53,9 +57,25 @@ export class SaldoComponent implements OnInit {
      }, 60000);
   }
 
+  getTime(){
+    this.service.getTime(this.userData[0].id).then((data)=>{
+        this.time = data;
+
+    },(err)=>{
+
+    });
+
+  
+}
+
   
 getSaldo() {
-  this.service.getSaldo(this.userData[0].id).then((data)=>{
+
+  this.dadosSaldo = {
+    id_user: this.userData[0].id,
+    cod_time: this.time[0].id
+  }
+  this.service.getSaldo(this.dadosSaldo).then((data)=>{
       this.saldo = data;
   },(err)=>{
 

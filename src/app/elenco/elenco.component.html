@@ -47,11 +47,11 @@
             <div class="col-md-3">
               <div class="card text-center">
                 <div class="card-body">
-                  <h4 class="card-title">Bonus de treinamento (falta fazer)</h4>
+                  <h4 class="card-title">Bonus de treinamento</h4>
                   <p class="card-text">
-                      Defesa: {{informacoesTime.defesa_maxima}}<br>
-                      Ataque: {{informacoesTime.atk_maximo}}<br>
-                      Resistência: {{informacoesTime.resistencia_maxima}}<br>
+                      Defesa:  {{treinamento.defesa}} <br>
+                      Ataque: {{treinamento.ataque}} <br>
+                      Resistência: {{treinamento.resistencia}} <br>
                   </p>
                 </div>
               </div>
@@ -227,40 +227,50 @@
     <div class="row">
       <div class="col-12 m-t-30">
         <h4 class="m-b-0">Treinamento</h4>
-        <p class="text-muted m-t-0 font-12">Add an optional header and/or footer within a card.
-          <code class="btn btn-sm" href="#code3" data-toggle="collapse">HTML <i class="fa fa-code"></i></code>
-        </p>
-        <div id="code3" class="collapse highlight">
-          <pre><code class="language-html" data-lang="html">
-                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card text-center"</span><span class="nt">&gt;</span>
-                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-header"</span><span class="nt">&gt;</span>
-                                Featured
-                              <span class="nt">&lt;/div&gt;</span>
-                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-body"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"card-title"</span><span class="nt">&gt;</span>Special title treatment<span class="nt">&lt;/h4&gt;</span>
-                                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card-text"</span><span class="nt">&gt;</span>With supporting text below as a natural lead-in to additional content.<span class="nt">&lt;/p&gt;</span>
-                                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Go somewhere<span class="nt">&lt;/a&gt;</span>
-                              <span class="nt">&lt;/div&gt;</span>
-                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-footer text-muted"</span><span class="nt">&gt;</span>
-                                2 days ago
-                              <span class="nt">&lt;/div&gt;</span>
-                            <span class="nt">&lt;/div&gt;</span></code></pre>
-        </div>
-        <!-- Card -->
+        <p class="text-muted m-t-0 font-12">You can quickly change the text alignment
+          <code>.text-center .text-right</code>.</p>
+      </div>
+      <div class="col-md-4">
         <div class="card text-center">
-          <div class="card-header">
-            Featured
-          </div>
           <div class="card-body">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-info">Go somewhere</a>
-          </div>
-          <div class="card-footer text-muted">
-            2 days ago
+            <h4 class="card-title">Bonus de Defesa</h4>
+              Defesa: {{treinamento.defesa}} <br>
+              <div *ngIf="treinamento.defesa==0">Proximo nivel: +50</div>
+              <div *ngIf="treinamento.defesa==0">LTC:0.00001</div>
+              <div *ngIf="treinamento.defesa!=0">Proximo nivel: +{{treinamento.proximo_defesa}}</div>
+              <div *ngIf="treinamento.defesa!=0">LTC: {{treinamento.defesa_valor}}</div><br>
+              <a  class="btn btn-primary" (click)="treinar(treinamento.defesa_valor, 1)">Treinar</a>
+            
           </div>
         </div>
-        <!-- Card -->
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4 class="card-title">Bonus de ataque</h4>
+              Ataque: {{treinamento.ataque}} <br>
+              <div *ngIf="treinamento.ataque==0">Proximo nivel: +50</div>
+              <div *ngIf="treinamento.ataque==0">LTC: 0.00001</div>
+              <div *ngIf="treinamento.ataque!=0">Proximo nivel: +{{treinamento.proximo_ataque}}</div>
+              <div *ngIf="treinamento.ataque!=0">LTC: {{treinamento.ataque_valor}}</div><br>
+              <a class="btn btn-primary" (click)="treinar(treinamento.ataque_valor, 2)">Treinar</a>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4 class="card-title">Bonus de resistência</h4>
+              Ataque: {{treinamento.resistencia}} <br>
+              <div *ngIf="treinamento.resistencia==0">Proximo nivel: +50</div>
+              <div *ngIf="treinamento.resistencia==0">LTC: 0.00001</div>
+              <div *ngIf="treinamento.resistencia!=0">Proximo nivel: +{{treinamento.proximo_resistencia}}</div>
+              <div *ngIf="treinamento.resistencia!=0">LTC: {{treinamento.resistencia_valor}}</div><br>
+              <a class="btn btn-primary" (click)="treinar(treinamento.resistencia_valor, 3)">Treinar</a>
+            
+          </div>
+        </div>
       </div>
     </div>
     <!-- End Row -->

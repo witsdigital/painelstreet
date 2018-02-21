@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { DepositoComponent } from './deposito/deposito.component';
+import { DesafioComponent } from './desafio/desafio.component';
 
 
 
@@ -18,6 +19,7 @@ export const ROUTES: Routes = [
     { path: 'news', component: NewsComponent },
     { path: 'tickets', component: TicketsComponent },
     { path: 'deposito', component: DepositoComponent },
-    { path: 'saque', component: SaqueComponent }
+    { path: 'saque', component: SaqueComponent },
+    { path: 'desafios', component: DesafioComponent }
    
 ]

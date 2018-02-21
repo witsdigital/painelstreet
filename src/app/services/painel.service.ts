@@ -132,6 +132,35 @@ getTime(credentials) {
   
   }
 
+
+  getTreinamento(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'equipe/getTreinamento', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  
+  }
+
+  postTreinamento(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'equipe/postTreinamento', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  
+  }
+
   postPlantelCompra(credentials) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
@@ -212,6 +241,96 @@ getSaldo(credentials) {
     let headers = new Headers();
 
     this.http.post(this.api+'transacoes/getSaldo', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+
+getLimiteSaque(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/getLimiteSaque', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+postSaque(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/postSaque', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+
+getCountSaques(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/getCountSaques', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+getSaqueID(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/getSaqueID', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+
+deleteSaqueID(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/deleteSaqueID', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
+
+
+
+getCountDepositos(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'transacoes/getCountDepositos', JSON.stringify(credentials), {headers: headers})
       .subscribe(res => {
         resolve(res.json());
       }, (err) => {
