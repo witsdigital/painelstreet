@@ -75,6 +75,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Valor</th>
+                                    <th>Data da solicitação</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
@@ -82,6 +83,7 @@
                                 <tr *ngFor="let item of saquesabertos">
                                     <td>{{item.id}}</td>
                                     <td>{{item.valor_saque}}</td>
+                                    <td>{{item.data | date:'d/M/yyyy'}}</td>
                                     <td>
                                         <button type="button" (click)="OpenModalDel(deleteticket, item)" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
                                     </td>
