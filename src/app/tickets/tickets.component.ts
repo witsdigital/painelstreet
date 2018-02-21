@@ -14,6 +14,8 @@ export class TicketsComponent implements OnInit {
   dados: any;
   userData: any;
 
+  count: any =[];
+
   mensagem;
   itemdelete: any;
 
@@ -25,6 +27,7 @@ export class TicketsComponent implements OnInit {
     setInterval(() => { 
 
       this.getTicketID();
+      this.getCountTickets();
  
      }, 2000);
 
@@ -90,6 +93,17 @@ deleteTicketID(item){
   }, (err) => {
     // Error log
   });
+
+}
+
+
+getCountTickets() {
+  this.service.getCountTickets(this.userData[0].id).then((result) => {
+    this.count = result;
+    console.log(this.responseData);
+},(err)=>{
+  
+});
 
 }
 

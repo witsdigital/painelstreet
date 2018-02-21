@@ -20,7 +20,7 @@
               <p class="text-muted m-t-0 font-12">You can quickly change the text alignment
                 <code>.text-center .text-right</code>.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-body">
                   <h4 class="card-title">Força da equipe Titular</h4>
@@ -32,31 +32,19 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="card text-center">
-                <div class="card-body">
-                  <h4 class="card-title">Bonus do plantel</h4>
-                  <p class="card-text">
-                      Defesa: {{informacoesTime.defesa_plantel}}<br>
-                      Ataque: {{informacoesTime.atk_plantel}}<br>
-                      Resistência: {{informacoesTime.resistencia_plantel}}<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-body">
                   <h4 class="card-title">Bonus de treinamento</h4>
                   <p class="card-text">
-                      Defesa:  {{treinamento.defesa}} <br>
-                      Ataque: {{treinamento.ataque}} <br>
-                      Resistência: {{treinamento.resistencia}} <br>
+                      Defesa:  {{informacoesTime.treinamento_defesa}} <br>
+                      Ataque: {{informacoesTime.treinamento_ataque}} <br>
+                      Resistência: {{informacoesTime.treinamento_resistencia}} <br>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card text-center">
                   <div class="card-body">
                     <h4 class="card-title">Força maxima da Equipe</h4>
@@ -239,7 +227,7 @@
               <div *ngIf="treinamento.defesa==0">LTC:0.00001</div>
               <div *ngIf="treinamento.defesa!=0">Proximo nivel: +{{treinamento.proximo_defesa}}</div>
               <div *ngIf="treinamento.defesa!=0">LTC: {{treinamento.defesa_valor}}</div><br>
-              <a  class="btn btn-primary" (click)="treinar(treinamento.defesa_valor, 1)">Treinar</a>
+              <a  class="btn btn-success" (click)="treinar(treinamento.defesa_valor, 1)">Treinar</a>
             
           </div>
         </div>
@@ -253,7 +241,7 @@
               <div *ngIf="treinamento.ataque==0">LTC: 0.00001</div>
               <div *ngIf="treinamento.ataque!=0">Proximo nivel: +{{treinamento.proximo_ataque}}</div>
               <div *ngIf="treinamento.ataque!=0">LTC: {{treinamento.ataque_valor}}</div><br>
-              <a class="btn btn-primary" (click)="treinar(treinamento.ataque_valor, 2)">Treinar</a>
+              <a class="btn btn-success" (click)="treinar(treinamento.ataque_valor, 2)">Treinar</a>
             
           </div>
         </div>
@@ -267,470 +255,14 @@
               <div *ngIf="treinamento.resistencia==0">LTC: 0.00001</div>
               <div *ngIf="treinamento.resistencia!=0">Proximo nivel: +{{treinamento.proximo_resistencia}}</div>
               <div *ngIf="treinamento.resistencia!=0">LTC: {{treinamento.resistencia_valor}}</div><br>
-              <a class="btn btn-primary" (click)="treinar(treinamento.resistencia_valor, 3)">Treinar</a>
+              <a class="btn btn-success" (click)="treinar(treinamento.resistencia_valor, 3)">Treinar</a>
             
           </div>
         </div>
       </div>
     </div>
     <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Size Using grid markup</h4>
-        <p class="text-muted m-t-0 font-12">Using the grid, wrap cards in columns and rows as needed.
-          <code>.col-1 to .col-12</code>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-success">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Using utilities</h4>
-        <p class="text-muted m-t-0 font-12">Using the utility, you can give direct width class to card like
-          <code>.w-25, w-50, w-75, w-100</code>
-        </p>
-        <div class="card w-75">
-          <div class="card-body">
-            <h3 class="card-title">This card has width of 75%</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card w-50">
-          <div class="card-body">
-            <h3 class="card-title">This card has width of 50%</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Size Using grid markup</h4>
-        <p class="text-muted m-t-0 font-12">Using the grid, wrap cards in columns and rows as needed.
-          <code>.col-1 to .col-12</code>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active" href="javascript:void(0)">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="javascript:void(0)">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-info">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Card styles</h4>
-        <p class="text-muted m-t-0 font-12">Cards include various options for customizing their backgrounds, borders, and color.
-          <code>.card-primary info, warning, danger</code>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse card-info">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse card-primary">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse card-danger">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse card-warning">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-inverse card-success">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Card styles</h4>
-        <p class="text-muted m-t-0 font-12">Cards include various options for customizing their backgrounds, borders, and color.
-          <code>.card-primary info, warning, danger</code>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-inverse">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-info">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-primary">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-danger">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-warning">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-outline-success">
-          <div class="card-header">
-            <h4 class="m-b-0 text-white">Card Title</h4>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Special title treatment</h3>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-inverse">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Card Groups</h4>
-        <p class="text-muted m-t-0 font-12">Use card groups to render cards as a single, attached element with equal width and height columns.</p>
-        <div class="card-group">
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img1.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is
-                a little bit longer.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img2.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img3.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even
-                longer content than the first to show that equal height action.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <h4 class="m-t-40">Card With action</h4>
-    <p class="text-muted m-t-0 font-12">With action elements.</p>
-    <div class="card">
-      <div class="card-header">
-        Title
-        <div class="card-actions">
-          <a class="" data-action="collapse">
-            <i class="ti-minus"></i>
-          </a>
-          <a class="btn-minimize" data-action="expand">
-            <i class="mdi mdi-arrow-expand"></i>
-          </a>
-          <a class="btn-close" data-action="close">
-            <i class="ti-close"></i>
-          </a>
-        </div>
-      </div>
-      <div class="card-body collapse show">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Card with Deck</h4>
-        <p class="text-muted m-t-0 font-12">Use card groups to render cards as a single, attached element with equal width and height columns.</p>
-        <div class="card-deck">
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img1.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is
-                a little bit longer.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img2.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This card has supporting text below as a natural.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top img-responsive" src="../assets/images/big/img3.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even
-                longer content than the first to show that equal height action. supporting text below as a natural lead-in
-                to additional content</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Card columns</h4>
-        <p class="text-muted m-t-0 font-12">Cards can be organized into Masonry-like columns with just CSS by wrapping them in
-          <code>card-columns</code>
-        </p>
-        <div class="card-columns">
-          <div class="card">
-            <img class="card-img-top img-fluid" src="../assets/images/big/img6.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title that wraps to a new line</h4>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is
-                a little bit longer.</p>
-            </div>
-          </div>
-          <div class="card p-3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer>
-              <small class="text-muted">
-                Someone famous in
-                <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </div>
-          <div class="card">
-            <img class="card-img-top img-fluid" src="../assets/images/big/img5.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card card-inverse card-primary p-3 text-center">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-            <footer>
-              <small>
-                Someone famous in
-                <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </div>
-          <div class="card text-center">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img img-fluid" src="../assets/images/big/img4.jpg" alt="Card image">
-          </div>
-          <div class="card p-3 text-right">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer>
-              <small class="text-muted">
-                Someone famous in
-                <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even
-                longer content than the first to show that equal height action.</p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Row -->
+    
     <!-- ============================================================== -->
     <!-- End PAge Content -->
     <!-- ============================================================== -->

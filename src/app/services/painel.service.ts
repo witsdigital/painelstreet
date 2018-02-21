@@ -409,6 +409,21 @@ deleteTicketID(credentials) {
 
 }
 
+
+getCountTickets(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'tickets/getCountTickets', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
   //erro
   private handleError(error: Response) {
       console.error(error);

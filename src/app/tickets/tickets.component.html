@@ -33,29 +33,29 @@
                     <h6 class="card-subtitle">List of ticket opend by customers</h6>
                     <div class="row m-t-40">
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="col-md-6 col-lg-4 col-xlg-4">
                             <div class="card card-inverse card-info">
                                 <div class="box bg-info text-center">
-                                    <h1 class="font-light text-white">2,064</h1>
+                                    <h1 class="font-light text-white">{{count.total}}</h1>
                                     <h6 class="text-white">Total de Tickets</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
-                            <div class="card card-primary card-inverse">
+                        <div class="col-md-6 col-lg-4 col-xlg-4">
+                            <div class="card card-success card-inverse">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">1,738</h1>
+                                    <h1 class="font-light text-white">{{count.resolvidos}}</h1>
                                     <h6 class="text-white">Resolvidos</h6>
                                 </div>
                             </div>
                         </div>
                         <!-- Column -->
-                        <div class="col-md-6 col-lg-3 col-xlg-3">
-                            <div class="card card-inverse card-success">
+                        <div class="col-md-6 col-lg-4 col-xlg-4">
+                            <div class="card card-inverse card-danger">
                                 <div class="box text-center">
-                                    <h1 class="font-light text-white">1100</h1>
-                                    <h6 class="text-white">Pedentes</h6>
+                                    <h1 class="font-light text-white">{{count.pendentes}}</h1>
+                                    <h6 class="text-white">Pendentes</h6>
                                 </div>
                             </div>
                         </div>
