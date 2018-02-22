@@ -66,8 +66,8 @@ desafiar(item) {
 
    var diferença1 = (this.time[0].atk_maximo + Math.floor((Math.random() * 1000) + 1)) - (item.defesa_maxima + Math.floor((Math.random() * 1000) + 1));
    var diferença2 = (item.atk_maximo + Math.floor((Math.random() * 1000) + 1)) - (this.time[0].defesa_maxima + Math.floor((Math.random() * 1000) + 1));
-   var resistencia1 = this.time[0].resistencia_maxima;
-   var resistencia2 = item.resistencia_maxima;
+   var resistencia1 = this.time[0].resistencia_maxima + Math.floor((Math.random() * 1000) + 1);
+   var resistencia2 = item.resistencia_maxima + Math.floor((Math.random() * 1000) + 1);
    var gol1 = 0;
    var gol2 = 0;
 
@@ -115,8 +115,6 @@ desafiar(item) {
    var jogo = setInterval(() => {   
     resistencia1 =  resistencia1 - diferença2;
     resistencia2 =  resistencia2 - diferença1;
-    console.log(resistencia1);
-    console.log(resistencia2);
     if (resistencia1<=0){
       gol2++;
       this.jogo = {
@@ -142,6 +140,9 @@ desafiar(item) {
     if (this.tempo==60){
       clearInterval(jogo);
      }
+
+     console.log('Time 1: ',this.jogo.gols_1);
+     console.log('Time 2: ',this.jogo.gols_2);
    }, 6000);
   
 
