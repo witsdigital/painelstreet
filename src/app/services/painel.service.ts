@@ -233,6 +233,21 @@ getTime(credentials) {
   
   }
 
+// desafios
+
+getTimes(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'desafios/getTimes', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
 
 // transacoes
 

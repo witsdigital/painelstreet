@@ -78,6 +78,7 @@ export class ElencoComponent implements OnInit {
   getTime(){
     this.service.getTime(this.userData[0].id).then((data)=>{
         this.time = data;
+        console.log(this.time);
 
     },(err)=>{
 
@@ -186,7 +187,7 @@ getSaldo() {
 
   if(this.saldo.saldo >= item.valor) {
 
-if ( this.plantel.length < 22) {
+if ( this.plantel.length < 23) {
 
 
   this.dados = {
@@ -310,8 +311,6 @@ vender(item){
   getTreinamento(){
     this.service.getTreinamento(this.time[0].id).then((data)=>{
       this.treinamento = data;
-      console.log(this.treinamento);
-
     },(err)=>{
 
     });
