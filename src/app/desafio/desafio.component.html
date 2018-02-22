@@ -14,6 +14,43 @@
       <!-- ============================================================== -->
       <!-- Start Page Content -->
       <!-- ============================================================== -->
+
+
+          <!-- ====================== row============================== -->  
+          <div class="row" *ngIf="jogo">
+              <div class="col-12">
+                  <div class="card">
+                      <div class="card-body">
+                        <h2>Jogo</h2>
+                          <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                              <thead>
+                                  <tr>
+                                      <th>Time</th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th>Time</th>
+                                      <th>tempo</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>{{jogo.time}}</td>
+                                      <td>{{jogo.gols_1}}</td>
+                                      <td>X</td>
+                                      <td>{{jogo.gols_2}}</td>
+                                      <td>{{jogo.adversario}}</td>
+                                      <td>0:{{tempo}}</td>    
+                                  </tr>
+              
+                              </tbody>
+          
+                          </table>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!-- ====================== END row============================== -->  
       
       <!-- ====================== row============================== -->  
   <div class="row">
@@ -21,11 +58,11 @@
         <div class="card">
             <div class="card-body">
               <h2>Times</h2>
-              <div *ngIf="time[0].status==0">
-                  <ngb-alert [dismissible]="false">
+              <div *ngFor="let p of time">
+                  <ngb-alert [dismissible]="false" *ngIf="p.status==0">
                     <strong>Você não tem jogadores suficientes para participar dos desafios</strong>
                   </ngb-alert>
-                </div>
+              </div>
                 <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                   
                     <thead>
@@ -41,7 +78,8 @@
                             <td>{{item.nivel}}</td>
 
                             <td>
-                                <button type="button" class="btn btn-danger" data-toggle="tooltip" *ngIf="time[0].status==1">Desafiar</button>
+                                <button type="button" (click)="desafiar(item)" class="btn btn-danger" data-toggle="tooltip" *ngIf="time[0].status==1">Desafiar</button>
+                                
                                 <button type="button" [routerLink]="['/elenco']" class="btn btn-primary" data-toggle="tooltip" *ngIf="time[0].status==0">Escalar Jogador</button>
                             </td>
                         </tr>
