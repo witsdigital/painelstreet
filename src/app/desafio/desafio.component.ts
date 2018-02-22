@@ -48,6 +48,7 @@ export class DesafioComponent implements OnInit {
 }
 
 desafiar(item) {
+  this.tempo = 0;
   this.jogo = {
     time: this.time[0].nome,
     adversario: item.nome,
