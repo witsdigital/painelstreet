@@ -89,8 +89,8 @@ desafiar(item) {
      }
    }, 1000);
 
-   var diferença1 = (this.time[0].atk_maximo + Math.floor((Math.random() * 1500) + 1)) - (item.defesa_maxima + Math.floor((Math.random() * 1500) + 1));
-   var diferença2 = (item.atk_maximo + Math.floor((Math.random() * 1500) + 1)) - (this.time[0].defesa_maxima + Math.floor((Math.random() * 1500) + 1));
+   var diferença1 = (this.time[0].atk_maximo + Math.floor((Math.random() * 2000) + 1)) - (item.defesa_maxima + Math.floor((Math.random() * 1500) + 1));
+   var diferença2 = (item.atk_maximo + Math.floor((Math.random() * 2000) + 1)) - (this.time[0].defesa_maxima + Math.floor((Math.random() * 1500) + 1));
    var resistencia1 = this.time[0].resistencia_maxima;
    var resistencia2 = item.resistencia_maxima;
    var gol1 = 0;
