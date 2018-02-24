@@ -14,7 +14,11 @@ export class DesafioComponent implements OnInit {
   times:any = [];
   userData: any = {};
   tempo = 0;
+  partidas: any = [];
 
+  responseData: any;
+
+  estado = 0;
 
   jogo: any;
 
@@ -29,8 +33,12 @@ export class DesafioComponent implements OnInit {
      }, 1000);
 
      setInterval(() => {     
+      this.getPartidas();
+     }, 3000);
+
+     setInterval(() => {     
       this.getTimes();
-     }, 60000);
+     }, 30000);
 
    }
 
@@ -47,16 +55,28 @@ export class DesafioComponent implements OnInit {
   
 }
 
+
+getPartidas(){
+  this.service.getPartidas().subscribe((data)=>{
+      this.partidas = data;
+  },(err)=>{
+
+  });
+
+
+}
+
 desafiar(item) {
   this.getTime();
+  this.estado = 1;
   this.tempo = 0;
   this.jogo = {
     time: this.time[0].nome,
     cod_time_a: this.time[0].id,
     cod_time_b: item.id,
     adversario: item.nome,
-    gols_1: 0,
-    gols_2: 0,
+    gol_time_a: 0,
+    gol_time_b: 0,
   };
 
 
@@ -65,6 +85,7 @@ desafiar(item) {
     this.tempo++;
     if (this.tempo>=60){
       clearInterval(tempo);
+      this.estado = 0;
      }
    }, 1000);
 
@@ -98,9 +119,10 @@ desafiar(item) {
         cod_time_a: this.time[0].id,
         cod_time_b: item.id,
         adversario: item.nome,
-        gols_1: gol1,
-        gols_2: gol2,
-        Equipe_v: ''
+        gol_time_a: gol1,
+        gol_time_b: gol2,
+        Equipe_v: '',
+        Equipe_d: ''
       };
     }
 
@@ -111,13 +133,70 @@ desafiar(item) {
         cod_time_a: this.time[0].id,
         cod_time_b: item.id,
         adversario: item.nome,
-        gols_1: gol1,
-        gols_2: gol2,
-        Equipe_v: ''
+        gol_time_a: gol1,
+        gol_time_b: gol2,
+        Equipe_v: '',
+        Equipe_d: ''
       };
     }
 
+    
+
+    if(gol1>gol2){
+      this.jogo = {
+        time: this.time[0].nome,
+        cod_time_a: this.time[0].id,
+        cod_time_b: item.id,
+        adversario: item.nome,
+        gol_time_a: gol1,
+        gol_time_b: gol2,
+        Equipe_v: this.time[0].id_usuario,
+        Equipe_d: item.id_usuario,
+        empate: 0
+      };
+    }
+
+    if(gol1<gol2){
+      this.jogo = {
+        time: this.time[0].nome,
+        cod_time_a: this.time[0].id,
+        cod_time_b: item.id,
+        adversario: item.nome,
+        gol_time_a: gol1,
+        gol_time_b: gol2,
+        Equipe_v: item.id_usuario,
+        Equipe_d: this.time[0].id_usuario,
+        empate: 0
+      };
+    }
+
+    if(gol1<gol2){
+      this.jogo = {
+        time: this.time[0].nome,
+        cod_time_a: this.time[0].id,
+        cod_time_b: item.id,
+        adversario: item.nome,
+        gol_time_a: gol1,
+        gol_time_b: gol2,
+        Equipe_v: '',
+        Equipe_d: '',
+        empate: 1
+      };
+    }
+
+    
     if (this.tempo==60){
+      this.service.PostPartida(this.jogo).then((result) => {
+        this.responseData = result;
+        console.log(this.responseData.permissao);
+        if(this.responseData.permissao==0){
+            
+        }else{
+        alert('Erro ao salvar dados da partida')
+        }
+      }, (err) => {
+        // Error log
+      });
       clearInterval(jogo);
      }
 

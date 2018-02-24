@@ -249,6 +249,26 @@ getTimes(credentials) {
 
 }
 
+
+getPartidas() {
+  return this.http.get(this.api + 'desafios/getPartidas').map(res => res.json())
+}
+
+
+PostPartida(credentials) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+
+    this.http.post(this.api+'desafios/PostPartida', JSON.stringify(credentials), {headers: headers})
+      .subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });
+  });
+
+}
+
 // transacoes
 
 getSaldo(credentials) {

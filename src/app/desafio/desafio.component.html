@@ -22,6 +22,11 @@
                   <div class="card">
                       <div class="card-body">
                         <h2>Jogo</h2>
+                        <div *ngIf="estado==0">
+                                <ngb-alert [dismissible]="false">
+                                        <strong>O Jogo acabou!</strong> 
+                                </ngb-alert>
+                        </div>
                           <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                               <thead>
                                   <tr>
@@ -36,9 +41,9 @@
                               <tbody>
                                   <tr>
                                       <td>{{jogo.time}}</td>
-                                      <td>{{jogo.gols_1}}</td>
+                                      <td>{{jogo.gol_time_a}}</td>
                                       <td>X</td>
-                                      <td>{{jogo.gols_2}}</td>
+                                      <td>{{jogo.gol_time_b}}</td>
                                       <td>{{jogo.adversario}}</td>
                                       <td>0:{{tempo}}</td>    
                                   </tr>
@@ -78,7 +83,12 @@
                             <td>{{item.nivel}}</td>
 
                             <td>
-                                <button type="button" (click)="desafiar(item)" class="btn btn-danger" data-toggle="tooltip" *ngIf="time[0].status==1">Desafiar</button>
+                                <div *ngIf="estado==0">
+                                <button type="button"  (click)="desafiar(item)" class="btn btn-danger" data-toggle="tooltip" *ngIf="time[0].status==1" >Desafiar</button>
+                                </div>
+                                <div *ngIf="estado==1">
+                                        <button type="button" disabled (click)="desafiar(item)" class="btn btn-danger" data-toggle="tooltip" *ngIf="time[0].status==1" >Seu time está em campo, aguarde...</button>
+                                </div> 
                                 
                                 <button type="button" [routerLink]="['/elenco']" class="btn btn-primary" data-toggle="tooltip" *ngIf="time[0].status==0">Escalar Jogador</button>
                             </td>
@@ -102,20 +112,20 @@
                         <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                             <thead>
                                 <tr>
-                                    <th>Time azul</th>
+                                    <th>Time A</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th>Time verde</th>
+                                    <th>Time B</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr >
-                                    <td>Xurupita</td>
-                                    <td>1</td>
+                                <tr *ngFor="let item of partidas">
+                                    <td>{{item.time_a}}</td>
+                                    <td>{{item.gol_time_a}}</td>
                                     <td>X</td>
-                                    <td>2</td>
-                                    <td>DOido FC</td>   
+                                    <td>{{item.gol_time_b}}</td>
+                                    <td>{{item.time_b}}</td>   
                                 </tr>
             
                             </tbody>

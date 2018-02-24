@@ -107,7 +107,6 @@ recuperarSenha() {
 
   this.service.postRecsenha(this.recuperar.email).then((result) => {
     this.responseData = result;
-    console.log(this.responseData.permissao);
     if(this.responseData.mensage==0){
       this.mensagemSucessCadastro = '';
      this.mensagemErrorCadastro = "Email não cadastrado"
