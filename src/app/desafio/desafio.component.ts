@@ -114,9 +114,8 @@ desafiar(item) {
     resistencia2 =  resistencia2 - diferença1;
     if (resistencia1<=0){
       gol2++;
-      resistencia1 = resistencia1 + Math.floor((Math.random() * 2000) + 600);
-      resistencia2 = resistencia2 + Math.floor((Math.random() * 1000) + 1);
-      diferença1 = diferença1 + Math.floor((Math.random() * 600) + 1);
+      resistencia1 = diferença2 + Math.floor((Math.random() * 2000) + 600);
+      diferença1 = diferença1 + Math.floor((Math.random() * 800) + 1);
       this.jogo = {
         time: this.time[0].nome,
         cod_time_a: this.time[0].id,
@@ -131,9 +130,8 @@ desafiar(item) {
 
     if (resistencia2<=0){
       gol1++;
-      resistencia2 = resistencia2 + Math.floor((Math.random() * 2000) + 600);
-      resistencia1 = resistencia1 + Math.floor((Math.random() * 1000) + 1);
-      diferença2 = diferença2 + Math.floor((Math.random() * 600) + 1);
+      resistencia2 = diferença1 + Math.floor((Math.random() * 2000) + 600);
+      diferença2 = diferença2 + Math.floor((Math.random() * 800) + 1);
       this.jogo = {
         time: this.time[0].nome,
         cod_time_a: this.time[0].id,
