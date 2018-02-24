@@ -155,8 +155,8 @@
         </div>
         <div>
             
-            <button *ngIf="plantel.length<22" class="btn-lg btn-success" (click)="openModal(modalPesquisarJogadores); mensagemError=''">Comprar</button><br>
-            <div  *ngIf="plantel.length>=22">
+            <button *ngIf="plantel.length<23" class="btn-lg btn-success" (click)="openModal(modalPesquisarJogadores); mensagemError=''">Comprar</button><br>
+            <div  *ngIf="plantel.length>=23">
                     <ngb-alert type="success" [dismissible]="false">
                         PLANTEL COMPLETO
                     </ngb-alert>
@@ -445,7 +445,7 @@
                             <div class="info">
                             {{card.nome}}<br>
                             LTC: <font color="green">{{card.valor}}</font><br>
-                            <button class="btn btn-success" *ngIf="plantel.length<22" (click)="comprar(card); m">Comprar</button>
+                            <button class="btn btn-success" *ngIf="plantel.length<23" (click)="comprar(card); ">Comprar</button>
                         </div>
                         </div>
                       </div>
