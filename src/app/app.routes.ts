@@ -14,7 +14,8 @@ import { DetalheNoticiaComponent } from './detalhe-noticia/detalhe-noticia.compo
 
 export const ROUTES: Routes = [
     { path: '', component: LoginComponent },
-    { path: '', component: LoginComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'login/:id', component: LoginComponent},
     { path: 'elenco', component: ElencoComponent },
     { path: 'home', component: HomeComponent },
     { path: 'news', component: NewsComponent },

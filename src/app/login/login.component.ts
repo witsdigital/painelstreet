@@ -16,17 +16,19 @@ export class LoginComponent implements OnInit {
 
   responseData : any = [];
 
+  id;
+
   mensagemError;
   mensagemErrorCadastro;
   mensagemSucessCadastro;
 
-  constructor(private router: Router, public service: PainelService, private modal: NgbModal) {
+  constructor(public route: ActivatedRoute, private router: Router, public service: PainelService, private modal: NgbModal) {
     if (localStorage.getItem('userData')) {
       this.router.navigate(['home']);
 
-    } else {
-      this.router.navigate(['/']);
-    }
+    } 
+
+    this.id = this.route.snapshot.params['id'];
 
 
   }
@@ -65,6 +67,7 @@ export class LoginComponent implements OnInit {
 
 cadastrar() {
 
+  this.cadastro.cod_recebedor = this.id;
 
   if(!this.cadastro.login || !this.cadastro.senha || !this.cadastro.senha || !this.cadastro.senha2){
     this.mensagemErrorCadastro = '';
