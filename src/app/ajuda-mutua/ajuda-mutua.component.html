@@ -1,0 +1,264 @@
+
+
+<div class="page-wrapper">
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <app-saldo></app-saldo>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-body">
+                  <h2 class="card-title">Ajuda Mutua</h2>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item"> <a  (click)="getFila(1)" class="nav-link active" data-toggle="tab" href="#250k" role="tab"> <span class="hidden-xs-down">Ajuda 250k</span><span class="hidden-sm-up">Ajuda 250k</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(2)" class="nav-link" data-toggle="tab" href="#500k" role="tab"> <span class="hidden-xs-down">Ajuda 500k</span><span class="hidden-sm-up">Ajuda 500k</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(3)" class="nav-link" data-toggle="tab" href="#1m" role="tab"> <span class="hidden-xs-down">Ajuda 1M</span><span class="hidden-sm-up">Ajuda 1M</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(4)" class="nav-link" data-toggle="tab" href="#2m" role="tab"> <span class="hidden-xs-down">Ajuda 2M</span><span class="hidden-sm-up">Ajuda 2M</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(5)" class="nav-link" data-toggle="tab" href="#4m" role="tab"> <span class="hidden-xs-down">Ajuda 4M</span><span class="hidden-sm-up">Ajuda 4M</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(6)" class="nav-link" data-toggle="tab" href="#8m" role="tab"> <span class="hidden-xs-down " >Ajuda 8M</span><span class="hidden-sm-up">Ajuda 8M</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(7)"class="nav-link" data-toggle="tab" href="#16m" role="tab"><span class="hidden-xs-down">Ajuda 16M</span><span class="hidden-sm-up">Ajuda 16M</span></a> </li>
+                      <li class="nav-item"> <a  (click)="getFila(8)" class="nav-link" data-toggle="tab" href="#32m" role="tab"><span class="hidden-xs-down">Ajuda 32M</span><span class="hidden-sm-up">Ajuda 32M</span></a> </li>
+                    </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content tabcontent-border">
+                      <div class="tab-pane active" id="250k" role="tabpanel">
+                          <div class="p-20">
+                            <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login | uppercase}}<br>
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                              <div class="table-responsive">
+                                  <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                      <thead>
+                                          <tr>
+                                              <th>Posição</th>
+                                              <th>Nome</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let item of lista;" >
+                                              <td *ngIf="item.status==1">{{item.posicao}}</td>
+                                              <td *ngIf="item.status==1">{{item.login}}</td>
+                                          </tr>
+                      
+                                      </tbody>
+           
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane  p-20" id="500k" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="1m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="2m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="4m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="8m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="16m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane p-20" id="32m" role="tabpanel">
+                          <div  *ngFor="let p of topo">
+                              <h2>
+                                Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                </h2>
+
+                            </div>
+                          <div class="table-responsive">
+                              <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                  <thead>
+                                      <tr>
+                                          <th>Posição</th>
+                                          <th>Nome</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of lista;" >
+                                          <td *ngIf="item.status==1"></td>
+                                          <td *ngIf="item.status==1">{{item.login}}</td>
+                                      </tr>
+                  
+                                  </tbody>
+       
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- row -->
+
+</div>
+</div>
+
+

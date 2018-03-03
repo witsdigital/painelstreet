@@ -74,12 +74,12 @@
                         <strong>{{mensagemSucessCadastro}}!</strong> 
                 </ngb-alert>
          </div>
-            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+            <p class="text-muted">Digite seu email para receber a nova senha! </p>
           </div>
         </div>
         <div class="form-group ">
           <div class="col-xs-12">
-            <input [(ngModel)]="recuperar.email" name="email" class="form-control" type="email" required="" placeholder="Email">
+            <input [(ngModel)]="recuperar.email" name="email" class="form-control" type="email" required="" placeholder="Email" email="true">
           </div>
         </div>
         <div class="form-group text-center m-t-20">

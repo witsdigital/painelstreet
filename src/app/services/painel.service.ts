@@ -459,7 +459,42 @@ getCountTickets(credentials) {
 
 }
 
-  //erro
+  //ajuda mutua
+
+  getFila(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'ajuda/getFila', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  
+  }
+
+
+  getTopoFila(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'ajuda/getTopoFila', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  
+  }
+
+
+
+
+
+   //erro
   private handleError(error: Response) {
       console.error(error);
       return Observable.throw(error.json().error || 'Server error');

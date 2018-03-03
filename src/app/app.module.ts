@@ -22,6 +22,7 @@ import { DepositoComponent } from './deposito/deposito.component';
 import { SaqueComponent } from './saque/saque.component';
 import { DesafioComponent } from './desafio/desafio.component';
 import { DetalheNoticiaComponent } from './detalhe-noticia/detalhe-noticia.component';
+import { AjudaMutuaComponent } from './ajuda-mutua/ajuda-mutua.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DetalheNoticiaComponent } from './detalhe-noticia/detalhe-noticia.compo
     DepositoComponent,
     SaqueComponent,
     DesafioComponent,
-    DetalheNoticiaComponent
+    DetalheNoticiaComponent,
+    AjudaMutuaComponent
   ],
   imports: [
     BrowserModule,

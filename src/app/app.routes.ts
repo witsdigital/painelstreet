@@ -8,6 +8,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { DepositoComponent } from './deposito/deposito.component';
 import { DesafioComponent } from './desafio/desafio.component';
 import { DetalheNoticiaComponent } from './detalhe-noticia/detalhe-noticia.component';
+import { AjudaMutuaComponent } from './ajuda-mutua/ajuda-mutua.component';
 
 
 
@@ -22,6 +23,7 @@ export const ROUTES: Routes = [
     { path: 'tickets', component: TicketsComponent },
     { path: 'deposito', component: DepositoComponent },
     { path: 'saque', component: SaqueComponent },
+    { path: 'ajuda', component: AjudaMutuaComponent },
     { path: 'desafios', component: DesafioComponent },
     {path: 'news/:id', component: DetalheNoticiaComponent},
    
