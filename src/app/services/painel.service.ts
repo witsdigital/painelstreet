@@ -491,6 +491,21 @@ getCountTickets(credentials) {
   }
 
 
+  PostDoacao(credentials) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+  
+      this.http.post(this.api+'ajuda/PostDoacao', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  
+  }
+
+
 
 
 

@@ -38,7 +38,7 @@
                             <div  *ngFor="let p of topo">
                               <h2>
                                 Proximo da fila: {{p.login | uppercase}}<br>
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                  <button  class="btn btn-primary" (click)="doar(p, 1000, 1);">Doar</button>
                                 </h2>
 
                             </div>
