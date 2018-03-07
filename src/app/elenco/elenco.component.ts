@@ -185,6 +185,10 @@ getSaldo() {
 
     this.getSaldo();
 
+
+    setTimeout(() => { 
+
+
   if(this.saldo.saldo >= item.valor) {
 
 if ( this.plantel.length < 23) {
@@ -214,7 +218,10 @@ if ( this.plantel.length < 23) {
               this.mensagemError = "Você ja atingiu o limite de Jogadores para a posição";
               alert(this.mensagemError);
              }
-             
+             if(this.responseData.permissao==0){
+              this.mensagemError = "Você acaba de comprar o jogador: "+item.nome;
+              alert(this.mensagemError);
+             }
               
            }, (err) => {
             console.log('erro')
@@ -228,6 +235,8 @@ if ( this.plantel.length < 23) {
     this.mensagemError = "Você não tem saldo suficiente para comprar esse jogador";
     alert(this.mensagemError);
   }
+
+}, 1000);
 
     } 
 

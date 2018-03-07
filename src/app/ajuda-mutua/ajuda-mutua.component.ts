@@ -10,20 +10,54 @@ import { PainelService } from '../services/painel.service';
 export class AjudaMutuaComponent implements OnInit {
 
   lista: any=[];
-  topo: any = [];
+  topo: any;
   userData: any;
 
   dados: any;
   responseData: any = {};
 
+  time: any;
+  dadosSaldo:any;
+  saldo: any = [];
+
   constructor(public service: PainelService) {
     this.getFila(1);
     this.userData = JSON.parse(localStorage.getItem('userData'));
+    this.getTime();
+
    }
 
   ngOnInit() {
   }
 
+
+  getSaldo() {
+
+    this.dadosSaldo = {
+      id_user: this.userData[0].id,
+      cod_time: this.time[0].id
+    }
+    this.service.getSaldo(this.dadosSaldo).then((data)=>{
+        this.saldo = data;
+    },(err)=>{
+  
+    });
+  
+  
+  }
+
+  getTime(){
+    this.service.getTime(this.userData[0].id).then((data)=>{
+        this.time = data;
+        console.log(this.time);
+
+    },(err)=>{
+
+    });
+
+  
+}
+  
 
   getFila(tipo){
     this.getTopoFila(tipo);
@@ -53,6 +87,11 @@ getTopoFila(tipo){
 
 
 doar(item, valor, fila){
+
+this.getSaldo();
+ 
+setTimeout(() => {
+
   this.dados = {
     id: this.userData[0].id,
     id_recebedor: item.cod_usuario,
@@ -60,6 +99,7 @@ doar(item, valor, fila){
     fila: fila
     }
 
+    if(this.saldo.saldo >= valor) {
     this.service.PostDoacao(this.dados).then((result) => {
       this.responseData = result;
       console.log(this.responseData);
@@ -76,6 +116,11 @@ doar(item, valor, fila){
     },(err)=>{
 
     });
+  } else {
+    alert('Você não tem saldo suficiente para participar do sistema');
+  }
+} , 1000);
+
 }
 
 }

@@ -91,7 +91,7 @@ export class SaqueComponent implements OnInit {
 
 enviar(){
   this.getSaldo();
-
+  setTimeout(() => { 
   console.log(this.limite.limite,  this.dadossaque.valor);
   if (this.limite.limite >= this.dadossaque.valor) {
     if(this.saldo.saldo >= this.dadossaque.valor) {
@@ -120,6 +120,7 @@ enviar(){
   } else {
     alert("O valor ultrapassa o seu limite de saque");
   }
+}, 1000);
 }
 
 

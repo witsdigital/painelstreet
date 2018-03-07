@@ -36,12 +36,12 @@
                       <div class="tab-pane active" id="250k" role="tabpanel">
                           <div class="p-20">
                             <div  *ngFor="let p of topo">
-                              <h2>
-                                Proximo da fila: {{p.login | uppercase}}<br>
-                                  <button  class="btn btn-primary" (click)="doar(p, 1000, 1);">Doar</button>
-                                </h2>
-
-                            </div>
+                                <h2>
+                                  Proximo da fila: {{p.login}}
+                                  <button  class="btn btn-primary" (click)="doar(p, '0.03', 1);">Doar</button>
+                                  </h2>
+  
+                              </div>
                               <div class="table-responsive">
                                   <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                                       <thead>
