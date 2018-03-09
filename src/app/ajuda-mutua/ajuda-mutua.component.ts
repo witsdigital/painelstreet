@@ -1,3 +1,4 @@
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Response } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { PainelService } from '../services/painel.service';
@@ -20,15 +21,34 @@ export class AjudaMutuaComponent implements OnInit {
   dadosSaldo:any;
   saldo: any = [];
 
-  constructor(public service: PainelService) {
+  doacoes: any = [];
+
+  start;
+  startTopo;
+
+  resultDados;
+
+  constructor(public service: PainelService, private modal: NgbModal) {
     this.getFila(1);
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.getTime();
+    
+    setInterval(() => {
+    this.PostDoacoesCofre();
+    }, 60000);
+
+    setInterval(() => {
+      this.ultimaDoacao();
+      }, 1000);
+    
 
    }
 
+   
+
   ngOnInit() {
   }
+
 
 
   getSaldo() {
@@ -60,6 +80,8 @@ export class AjudaMutuaComponent implements OnInit {
   
 
   getFila(tipo){
+    clearInterval(this.start);
+    this.start = setInterval(() => {
     this.getTopoFila(tipo);
     this.service.getFila(tipo).then((data)=>{
         this.lista = data;
@@ -67,8 +89,30 @@ export class AjudaMutuaComponent implements OnInit {
     },(err)=>{
 
     });
-
+  }, 500);
   
+}
+
+
+PostDoacoesCofre(){
+  this.service.PostDoacoesCofre().subscribe((data)=>{
+      this.resultDados = data;
+  },(err)=>{
+
+  });
+
+
+}
+
+
+ultimaDoacao(){
+  this.service.ultimaDoacao().subscribe((data)=>{
+      this.doacoes = data;
+  },(err)=>{
+
+  });
+
+
 }
 
 
@@ -82,24 +126,15 @@ getTopoFila(tipo){
 
   });
 
-
 }
 
 
-doar(item, valor, fila){
+doar(dados){
 
 this.getSaldo();
  
 setTimeout(() => {
-
-  this.dados = {
-    id: this.userData[0].id,
-    id_recebedor: item.cod_usuario,
-    valor: valor,
-    fila: fila
-    }
-
-    if(this.saldo.saldo >= valor) {
+    if(this.saldo.saldo >= dados.valor) {
     this.service.PostDoacao(this.dados).then((result) => {
       this.responseData = result;
       console.log(this.responseData);
@@ -122,5 +157,19 @@ setTimeout(() => {
 } , 1000);
 
 }
+
+
+OpenModal(modal, item, valor, fila){
+
+  this.dados = {
+    id: this.userData[0].id,
+    id_recebedor: item.cod_usuario,
+    valor: valor,
+    fila: fila
+    }
+    
+    this.modal.open(modal);
+
+  }
 
 }

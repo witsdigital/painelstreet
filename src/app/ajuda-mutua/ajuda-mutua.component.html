@@ -35,11 +35,12 @@
                   <div class="tab-content tabcontent-border">
                       <div class="tab-pane active" id="250k" role="tabpanel">
                           <div class="p-20">
-                            <div  *ngFor="let p of topo">
+                            <div  *ngFor="let p of topo" class="centralizar">
                                 <h2>
-                                  Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p, '0.03', 1);">Doar</button>
+                                    {{p.login}} <br>
+                                  <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.0025', 1);">Doar</button>
                                   </h2>
+                                  <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==1"></p>Ultima doação: {{item.login}}</div>
   
                               </div>
                               <div class="table-responsive">
@@ -63,11 +64,12 @@
                           </div>
                       </div>
                       <div class="tab-pane  p-20" id="500k" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.005', 2);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==2"></p>Ultima doação: {{item.login}}</div>
 
                             </div>
                           <div class="table-responsive">
@@ -80,7 +82,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>>
                                       </tr>
                   
@@ -90,11 +92,12 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="1m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.01', 3);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==3"></p>Ultima doação: {{item.login}}</div>
 
                             </div>
                           <div class="table-responsive">
@@ -107,7 +110,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -117,11 +120,12 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="2m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.02', 4);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==4"></p>Ultima doação: {{item.login}}</div>
 
                             </div>
                           <div class="table-responsive">
@@ -134,7 +138,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -144,11 +148,12 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="4m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.04', 5);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==5"></p>Ultima doação: {{item.login}}</div>
 
                             </div>
                           <div class="table-responsive">
@@ -161,7 +166,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -171,11 +176,13 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="8m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.08', 6);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==6"></p>Ultima doação: {{item.login}}</div>
+
 
                             </div>
                           <div class="table-responsive">
@@ -188,7 +195,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -198,11 +205,12 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="16m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                          <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.16', 7);">Doar</button>
                                 </h2>
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==7"></p>Ultima doação: {{item.login}}</div>
 
                             </div>
                           <div class="table-responsive">
@@ -215,7 +223,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -225,12 +233,12 @@
                           </div>
                       </div>
                       <div class="tab-pane p-20" id="32m" role="tabpanel">
-                          <div  *ngFor="let p of topo">
+                        <div  *ngFor="let p of topo" class="centralizar">
                               <h2>
-                                Proximo da fila: {{p.login}}
-                                  <button  class="btn btn-primary" (click)="doar(p);">Doar</button>
+                                 {{p.login}} <br>
+                                <button  class="btn btn-primary" (click)="OpenModal(modalConfirma, p, '0.32', 8);">Doar</button>
                                 </h2>
-
+                                <div *ngFor="let item of doacoes | slice: 0:1"><p *ngIf="item.fila==8"></p>Ultima doação: {{item.login}}</div>
                             </div>
                           <div class="table-responsive">
                               <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
@@ -242,7 +250,7 @@
                                   </thead>
                                   <tbody>
                                       <tr *ngFor="let item of lista;" >
-                                          <td *ngIf="item.status==1"></td>
+                                        <td *ngIf="item.status==1">{{item.posicao}}</td>
                                           <td *ngIf="item.status==1">{{item.login}}</td>
                                       </tr>
                   
@@ -262,3 +270,19 @@
 </div>
 
 
+
+
+<ng-template #modalConfirma let-c="close" let-d="dismiss">
+    <div class="modal-header">
+            <h2 class="modal-title">Confirmar doação</h2>
+
+          </div>
+          <div class="info" style="text-align: center;">
+              <h3>Você deseja doar {{dados.valor}} e participar do sistema de Ajuda-Mutua da Fila {{dados.fila}}?</h3>
+          </div>
+
+         
+    <div class="modal-footer">
+            <button type="button" class="btn" (click)="c('Close click')">Cancelar</button>
+            <button type="button" class="btn btn-danger" (click)="doar(dados); c('Close click')">Doar</button>
+    </div>

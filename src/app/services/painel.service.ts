@@ -490,6 +490,15 @@ getCountTickets(credentials) {
   
   }
 
+  PostDoacoesCofre() {
+    return this.http.get(this.api + 'ajuda/PostDoacoesCofre').map(res => res.json())
+  }
+
+  ultimaDoacao() {
+    return this.http.get(this.api + 'ajuda/ultimaDoacao').map(res => res.json())
+  }
+
+
 
   PostDoacao(credentials) {
     return new Promise((resolve, reject) => {
