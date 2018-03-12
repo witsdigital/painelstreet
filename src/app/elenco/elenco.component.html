@@ -155,7 +155,7 @@
         </div>
         <div>
             
-            <button *ngIf="plantel.length<23" class="btn-lg btn-success" (click)="openModal(modalPesquisarJogadores); mensagemError=''">Comprar</button><br>
+            <button *ngIf="plantel.length<23" class="btn-lg btn-success" (click)="openModal2(modalPesquisarJogadores); mensagemError=''">Comprar</button><br>
             <div  *ngIf="plantel.length>=23">
                     <ngb-alert type="success" [dismissible]="false">
                         PLANTEL COMPLETO
@@ -490,7 +490,10 @@
                                     </div>
                                   </div>
                                 </div>
-                
+
+                                <div class="modal-footer">
+                                  <button  class="btn btn-success">Salvar</button>
+                                </div>
                       </ng-template>
             
 

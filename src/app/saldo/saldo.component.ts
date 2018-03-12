@@ -26,6 +26,8 @@ export class SaldoComponent implements OnInit {
 
   time: any =[];
 
+  resultDados: any;
+
   constructor(public service: PainelService) {
 
     
@@ -53,6 +55,7 @@ export class SaldoComponent implements OnInit {
     setInterval(() => { 
 
       this.getLTC();
+      this.PostDoacoesCofre();
  
      }, 60000);
   }
@@ -89,6 +92,17 @@ getLTC() {
   },(err)=>{
 
   });
+}
+
+
+PostDoacoesCofre(){
+  this.service.PostDoacoesCofre().subscribe((data)=>{
+      this.resultDados = data;
+  },(err)=>{
+
+  });
+
+
 }
 
 }

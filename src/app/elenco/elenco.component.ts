@@ -40,7 +40,8 @@ export class ElencoComponent implements OnInit {
 		resistencia_valor: 0
   };
 
- 
+ mod;
+ mod2;
 
   constructor(public service: PainelService, private modal: NgbModal) {
 
@@ -53,6 +54,12 @@ export class ElencoComponent implements OnInit {
       this.getTimeAtributos();
       this.calcTitular();
       this.getTreinamento();
+      if (this.escalacao.length==11) {
+        this.mod.dismiss();
+      }
+      if (this.plantel.length>=23) {
+        this.mod2.dismiss();
+      }
  
      }, 1000);
 
@@ -121,10 +128,11 @@ escalar(card){
        if(this.responseData.mensage==3){
         this.mensagemError = "Você ja atingiu o limite de Jogadores";
         alert(this.mensagemError);
-       }
+       }       
   },(err)=>{
 
   });
+
 
 
 }
@@ -222,7 +230,7 @@ if ( this.plantel.length < 23) {
               this.mensagemError = "Você acaba de comprar o jogador: "+item.nome;
               alert(this.mensagemError);
              }
-              
+             
            }, (err) => {
             console.log('erro')
            });
@@ -267,7 +275,13 @@ vender(item){
 
 
   openModal(modal){
-    this.modal.open(modal);
+    this.mod = this.modal.open(modal);
+
+  }
+
+  openModal2(modal){
+    this.mod2 = this.modal.open(modal);
+
   }
 
   openModalVenda(modal, card){

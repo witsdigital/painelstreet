@@ -26,16 +26,11 @@ export class AjudaMutuaComponent implements OnInit {
   start;
   startTopo;
 
-  resultDados;
-
   constructor(public service: PainelService, private modal: NgbModal) {
     this.getFila(1);
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.getTime();
-    
-    setInterval(() => {
-    this.PostDoacoesCofre();
-    }, 60000);
+
 
     setInterval(() => {
       this.ultimaDoacao();
@@ -94,15 +89,7 @@ export class AjudaMutuaComponent implements OnInit {
 }
 
 
-PostDoacoesCofre(){
-  this.service.PostDoacoesCofre().subscribe((data)=>{
-      this.resultDados = data;
-  },(err)=>{
 
-  });
-
-
-}
 
 
 ultimaDoacao(){
